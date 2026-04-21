@@ -1,3 +1,35 @@
+@font-face {
+  font-family: "Reggae";
+  src: url("./ReggaeOne-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+* {
+  box-sizing: border-box;
+}
 
+html {
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  font-family: "Reggae", "Segoe UI", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #110D0E;
+  background: #F9E6E8;
+}
+
+button,
+input,
+textarea,
+select,
+a.btn-primary,
+a.btn-secondary,
+a.btn-tertiary {
+  border-radius: 8px;
+}
 
 /*# sourceMappingURL=main.css.map */

@@ -1,36 +1,203 @@
-$RED: #D10D1D
-$WHITE: #F9E6E8
-$GREEN: #4CE038
-$BLUE: #385FE0
+// --------------------------------------------------
+// Design tokens
+// --------------------------------------------------
+// Primitive colors
+$color-brand-50: #F9E6E8
+$color-brand-100: #F88790
+$color-brand-200: #F33F4E
+$color-brand-300: #F00F21
+$color-brand-400: #D10D1D
+$color-brand-500: #B20B19
+$color-brand-600: #7D0811
+$color-brand-700: #4D050B
 
-$RED_800: #4D050B
-$RED_700: #7D0811
-$RED_600: #B20B19
-$RED_500: #D10D1D
-$RED_400: #F00F21
-$RED300: #F33F4E
-$RED_200: #F88790
+$color-neutral-0: #FFFFFF
+$color-neutral-100: #F9F5F5
+$color-neutral-200: #E7DDDE
+$color-neutral-300: #C9BABC
+$color-neutral-400: #A79598
+$color-neutral-500: #7E696D
+$color-neutral-600: #59504F
+$color-neutral-700: #322729
+$color-neutral-800: #110D0E
 
-$BLACK: #110D0E
-$BLACK_MID: #322729
-$GREY: #59504F
+$color-success-50: #E8F9E4
+$color-success-100: #C6F4BE
+$color-success-200: #97EC87
+$color-success-300: #67E34D
+$color-success-400: #4CE038
+$color-success-500: #349228
+$color-success-600: #226819
 
-$GREEN_HARD: #226819
-$GREEN_MID: #349228
-$GREEN_LOW: #4DCC3C
+$color-info-50: #E7EEFC
+$color-info-100: #BBCBFA
+$color-info-200: #90A8F4
+$color-info-300: #6785EA
+$color-info-400: #385FE0
+$color-info-500: #2052F7
+$color-info-600: #0D33AF
 
-$BLUE_HARD: #0D33AF
-$BLUE_MID: #2052F7
-$BLUE_LOW: #6785EA
+$color-warning-50: #FFF1E2
+$color-warning-100: #F8C78C
+$color-warning-200: #EB6E00
+$color-warning-300: #BF5E08
+$color-warning-400: #964C0B
 
-$ORANGE_LOW: #EB6E00
-$ORANGE_MID: #BF5E08
-$ORANGE_HARD: #964C0B
+// Semantic colors
+$color-brand: $color-brand-400
+$color-background: $color-brand-50
+$color-surface: $color-neutral-0
+$color-surface-muted: $color-neutral-100
+$color-text-primary: $color-neutral-800
+$color-text-secondary: $color-neutral-600
+$color-text-tertiary: $color-neutral-500
+$color-border-default: $color-neutral-200
+$color-border-strong: $color-neutral-300
+$color-success: $color-success-400
+$color-info: $color-info-400
+$color-warning: $color-warning-200
+$color-danger: $color-brand-400
 
-$H1: 44px
-$H2: 34px
-$H3: 26px
-$PARA: 18px
+// On-colors
+$color-on-brand: $color-neutral-0
+$color-on-success: $color-neutral-800
+$color-on-info: $color-neutral-0
+$color-on-warning: $color-neutral-800
+$color-on-danger: $color-neutral-0
+
+// Typography
+$font-family-base: "Reggae", "Segoe UI", Arial, sans-serif
+$font-family-display: "Reggae", "Segoe UI", Arial, sans-serif
+
+$font-size-xs: 12px
+$font-size-sm: 14px
+$font-size-md: 16px
+$font-size-lg: 18px
+$font-size-xl: 20px
+$font-size-2xl: 26px
+$font-size-3xl: 34px
+$font-size-4xl: 44px
+
+$line-height-tight: 1.1
+$line-height-normal: 1.5
+$line-height-relaxed: 1.75
+
+$font-weight-regular: 400
+$font-weight-medium: 500
+$font-weight-semibold: 600
+$font-weight-bold: 700
+
+// Legacy headline aliases
+$H1: $font-size-4xl
+$H2: $font-size-3xl
+$H3: $font-size-2xl
+$PARA: $font-size-lg
+
+// Spacing
+$space-0: 0
+$space-1: 4px
+$space-2: 8px
+$space-3: 12px
+$space-4: 16px
+$space-5: 20px
+$space-6: 24px
+$space-8: 32px
+$space-10: 40px
+$space-12: 48px
+$space-16: 64px
+
+// Radius
+$radius-none: 0
+$radius-sm: 4px
+$radius-default: 8px
+$radius-md: 8px
+$radius-lg: 12px
+$radius-xl: 16px
+$radius-full: 9999px
+
+// Border widths
+$border-width-hairline: 1px
+$border-width-regular: 2px
+$border-width-strong: 3px
+
+// Shadows
+$shadow-xs: 0 1px 2px rgba($color-neutral-800, 0.08)
+$shadow-sm: 0 2px 8px rgba($color-neutral-800, 0.10)
+$shadow-md: 0 8px 24px rgba($color-neutral-800, 0.14)
+
+// Motion
+$motion-duration-fast: 120ms
+$motion-duration-normal: 200ms
+$motion-duration-slow: 320ms
+$motion-easing-standard: cubic-bezier(0.2, 0, 0, 1)
+
+// -----------------------------------------------------------------
+// Compatibility aliases (existing variable names)
+// -----------------------------------------------------------------
+$RED: $color-brand
+$WHITE: $color-background
+$GREEN: $color-success
+$BLUE: $color-info
+
+$RED_800: $color-brand-700
+$RED_700: $color-brand-600
+$RED_600: $color-brand-500
+$RED_500: $color-brand-400
+$RED_400: $color-brand-300
+$RED300: $color-brand-200
+$RED_200: $color-brand-100
+
+$BLACK: $color-neutral-800
+$BLACK_MID: $color-neutral-700
+$GREY: $color-neutral-600
+
+$GREEN_HARD: $color-success-600
+$GREEN_MID: $color-success-500
+$GREEN_LOW: $color-success-300
+
+$BLUE_HARD: $color-info-600
+$BLUE_MID: $color-info-500
+$BLUE_LOW: $color-info-300
+
+$ORANGE_LOW: $color-warning-200
+$ORANGE_MID: $color-warning-300
+$ORANGE_HARD: $color-warning-400
+
+// -----------------------------------------------------------------
+// Font face
+// -----------------------------------------------------------------
+@font-face
+  font-family: "Reggae"
+  src: url("./ReggaeOne-Regular.ttf") format("truetype")
+  font-weight: 400
+  font-style: normal
+  font-display: swap
+
+// -----------------------------------------------------------------
+// Base styles
+// -----------------------------------------------------------------
+*
+  box-sizing: border-box
+
+html
+  font-size: $font-size-md
+
+body
+  margin: 0
+  font-family: $font-family-base
+  font-size: $font-size-md
+  line-height: $line-height-normal
+  color: $color-text-primary
+  background: $color-background
+
+button,
+input,
+textarea,
+select,
+a.btn-primary,
+a.btn-secondary,
+a.btn-tertiary
+  border-radius: $radius-default
 
 
 
