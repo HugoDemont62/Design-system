@@ -22,14 +22,104 @@ body {
   background: #F9E6E8;
 }
 
-button,
-input,
-textarea,
-select,
 a.btn-primary,
 a.btn-secondary,
 a.btn-tertiary {
-  border-radius: 8px;
+  border-radius: 50%;
+}
+
+a.btn-primary,
+button.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  font-family: "Reggae", "Segoe UI", Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  text-decoration: none;
+  padding: 16px 48px;
+  cursor: pointer;
+  transition: background-color 120ms cubic-bezier(0.2, 0, 0, 1), color 120ms cubic-bezier(0.2, 0, 0, 1), border-color 120ms cubic-bezier(0.2, 0, 0, 1);
+  color: #D10D1D;
+  background-color: #F9E6E8;
+  border: 3px solid #D10D1D;
+}
+a.btn-primary:hover, a.btn-primary:focus,
+button.btn-primary:hover,
+button.btn-primary:focus {
+  background-color: #F88790;
+  color: #D10D1D;
+  outline: none;
+}
+a.btn-primary:active,
+button.btn-primary:active {
+  background-color: #F33F4E;
+  color: #D10D1D;
+}
+
+a.btn-secondary,
+button.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  font-family: "Reggae", "Segoe UI", Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  text-decoration: none;
+  padding: 16px 48px;
+  cursor: pointer;
+  transition: background-color 120ms cubic-bezier(0.2, 0, 0, 1), color 120ms cubic-bezier(0.2, 0, 0, 1), border-color 120ms cubic-bezier(0.2, 0, 0, 1);
+  color: #FFFFFF;
+  background-color: #D10D1D;
+  border: 3px solid #D10D1D;
+}
+a.btn-secondary:hover, a.btn-secondary:focus,
+button.btn-secondary:hover,
+button.btn-secondary:focus {
+  background-color: #B20B19;
+  border-color: #B20B19;
+  color: #FFFFFF;
+  outline: none;
+}
+a.btn-secondary:active,
+button.btn-secondary:active {
+  background-color: #7D0811;
+  border-color: #7D0811;
+  color: #FFFFFF;
+}
+
+a.btn-tertiary,
+button.btn-tertiary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  font-family: "Reggae", "Segoe UI", Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  text-decoration: none;
+  padding: 16px 48px;
+  cursor: pointer;
+  transition: background-color 120ms cubic-bezier(0.2, 0, 0, 1), color 120ms cubic-bezier(0.2, 0, 0, 1), border-color 120ms cubic-bezier(0.2, 0, 0, 1);
+  color: #FFFFFF;
+  background-color: #110D0E;
+  border: 3px solid transparent;
+}
+a.btn-tertiary:hover, a.btn-tertiary:focus,
+button.btn-tertiary:hover,
+button.btn-tertiary:focus {
+  background-color: #A79598;
+  border-color: transparent;
+  color: #FFFFFF;
+  outline: none;
+}
+a.btn-tertiary:active,
+button.btn-tertiary:active {
+  background-color: #59504F;
+  border-color: transparent;
+  color: #FFFFFF;
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -5,7 +5,6 @@
   font-style: normal
   font-display: swap
 
-
 // --------------------------------------------------
 // Design tokens
 // --------------------------------------------------
@@ -76,6 +75,7 @@ $color-on-danger: $color-neutral-0
 // Typography
 $font-family-base: "Reggae", "Segoe UI", Arial, sans-serif
 $font-family-display: "Reggae", "Segoe UI", Arial, sans-serif
+$font-family-secondary: "Raleway", sans-serif
 
 $font-size-xs: 12px
 $font-size-sm: 14px
@@ -121,7 +121,7 @@ $radius-default: 8px
 $radius-md: 8px
 $radius-lg: 12px
 $radius-xl: 16px
-$radius-full: 9999px
+$radius-full: 50%
 
 // Border widths
 $border-width-hairline: 1px
@@ -171,6 +171,21 @@ $ORANGE_LOW: $color-warning-200
 $ORANGE_MID: $color-warning-300
 $ORANGE_HARD: $color-warning-400
 
+
+$btn-primary-background-active: $color-brand-200
+$btn-primary-background-hover: $color-brand-100
+$btn-primary-color: $color-brand
+
+$btn-secondary-background: $color-brand
+$btn-secondary-background-active: $color-brand-600
+$btn-secondary-background-hover: $color-brand-500
+$btn-secondary-color: $color-on-brand
+
+$btn-tertiary-bg: $color-neutral-800
+$btn-tertiary-bg-hover: $color-neutral-400
+$btn-tertiary-bg-active: $color-neutral-600
+$btn-tertiary-fg: $color-neutral-0
+
 // ------------------------------------
 // SASS
 // -------------------------------------
@@ -188,14 +203,105 @@ body
   color: $color-text-primary
   background: $color-background
 
-button,
-input,
-textarea,
-select,
 a.btn-primary,
 a.btn-secondary,
 a.btn-tertiary
-  border-radius: $radius-default
+  border-radius: $radius-full
+
+a.btn-primary,
+button.btn-primary
+  display: inline-flex
+  align-items: center
+  justify-content: center
+  width: fit-content
+
+  font-family: $font-family-base
+  font-size: $font-size-xl
+  font-weight: $font-weight-regular
+  text-decoration: none
+
+  padding: $space-4 $space-12
+
+  cursor: pointer
+  transition: background-color $motion-duration-fast $motion-easing-standard, color $motion-duration-fast $motion-easing-standard, border-color $motion-duration-fast $motion-easing-standard
+
+  color: $btn-primary-color
+  background-color: $color-background
+  border: $border-width-strong solid $btn-primary-color
 
 
+  &:hover,
+  &:focus
+    background-color: $btn-primary-background-hover
+    color: $btn-primary-color
+    outline: none
 
+  &:active
+    background-color: $btn-primary-background-active
+    color: $btn-primary-color
+
+a.btn-secondary,
+button.btn-secondary
+  display: inline-flex
+  align-items: center
+  justify-content: center
+  width: fit-content
+
+  font-family: $font-family-base
+  font-size: $font-size-xl
+  font-weight: $font-weight-regular
+  text-decoration: none
+
+  padding: $space-4 $space-12
+
+  cursor: pointer
+  transition: background-color $motion-duration-fast $motion-easing-standard, color $motion-duration-fast $motion-easing-standard, border-color $motion-duration-fast $motion-easing-standard
+
+  color: $btn-secondary-color
+  background-color: $btn-secondary-background
+  border: $border-width-strong solid $btn-secondary-background
+
+  &:hover,
+  &:focus
+    background-color: $btn-secondary-background-hover
+    border-color: $btn-secondary-background-hover
+    color: $btn-secondary-color
+    outline: none
+
+  &:active
+    background-color: $btn-secondary-background-active
+    border-color: $btn-secondary-background-active
+    color: $btn-secondary-color
+
+a.btn-tertiary,
+button.btn-tertiary
+  display: inline-flex
+  align-items: center
+  justify-content: center
+  width: fit-content
+
+  font-family: $font-family-base
+  font-size: $font-size-xl
+  font-weight: $font-weight-regular
+  text-decoration: none
+
+  padding: $space-4 $space-12
+
+  cursor: pointer
+  transition: background-color $motion-duration-fast $motion-easing-standard, color $motion-duration-fast $motion-easing-standard, border-color $motion-duration-fast $motion-easing-standard
+
+  color: $btn-tertiary-fg
+  background-color: $btn-tertiary-bg
+  border: $border-width-strong solid transparent
+
+  &:hover,
+  &:focus
+    background-color: $btn-tertiary-bg-hover
+    border-color: transparent
+    color: $btn-tertiary-fg
+    outline: none
+
+  &:active
+    background-color: $btn-tertiary-bg-active
+    border-color: transparent
+    color: $btn-tertiary-fg
