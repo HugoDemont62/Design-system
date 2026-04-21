@@ -1,7 +1,25 @@
 (function () {
   // ── Password toggle ──────────────────────────────────────
-  var openIconPath = "./oeil_ouvert.svg";
-  var closedIconPath = "./oeil_ferme.svg";
+  function isDarkTheme() {
+    return document.body.classList.contains("theme-dark");
+  }
+
+  function openIconPath() {
+    return isDarkTheme() ? "./oeil_ouvert_blanc.svg" : "./oeil_ouvert.svg";
+  }
+
+  function closedIconPath() {
+    return isDarkTheme() ? "./oeil_ferme_blanc.svg" : "./oeil_ferme.svg";
+  }
+
+  function refreshPasswordToggleIcons() {
+    document.querySelectorAll(".password-toggle").forEach(function (button) {
+      var icon = button.querySelector("img");
+      if (!icon) return;
+      var visible = button.getAttribute("aria-pressed") === "true";
+      icon.setAttribute("src", visible ? closedIconPath() : openIconPath());
+    });
+  }
 
   function resolvePasswordInput(button) {
     var targetId = button.getAttribute("aria-controls") || button.getAttribute("data-target");
@@ -21,7 +39,7 @@
     passwordInput.type = showPassword ? "text" : "password";
     button.setAttribute("aria-pressed", showPassword ? "true" : "false");
     button.setAttribute("aria-label", showPassword ? "Masquer le mot de passe" : "Afficher le mot de passe");
-    if (icon) icon.setAttribute("src", showPassword ? closedIconPath : openIconPath);
+    if (icon) icon.setAttribute("src", showPassword ? closedIconPath() : openIconPath());
   }
 
   document.addEventListener("click", function (e) {
@@ -79,6 +97,7 @@
       document.body.classList.add("theme-dark");
       themeToggle.checked = true;
     }
+    refreshPasswordToggleIcons();
     themeToggle.addEventListener("change", function () {
       if (themeToggle.checked) {
         document.body.classList.add("theme-dark");
@@ -87,6 +106,9 @@
         document.body.classList.remove("theme-dark");
         localStorage.setItem("ds-theme", "light");
       }
+      refreshPasswordToggleIcons();
     });
+  } else {
+    refreshPasswordToggleIcons();
   }
 })();

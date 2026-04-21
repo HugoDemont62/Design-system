@@ -542,6 +542,10 @@ label > input[aria-invalid=true] + small {
 }
 .login-actions button,
 .login-actions a {
+  font-family: "Reggae", sans-serif;
+  font-size: 26px;
+  line-height: 1.1;
+  padding: 16px 40px;
   width: 100%;
   justify-content: center;
 }
