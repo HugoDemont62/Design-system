@@ -683,6 +683,7 @@ label > input[aria-invalid="true"] + small
 // -------------------------------------
 // Page tokens
 
+$login-actions-min-width: 220px
 $login-visual-bg-start: $color-brand-300
 $login-visual-bg-mid: $color-brand-600
 $login-visual-bg-end: $color-neutral-800
@@ -740,15 +741,16 @@ $doc-text-meta: $color-text-secondary
   display: flex
   flex-direction: column
   gap: $space-3
-  width: 100%
+  width: fit-content
+  min-width: $login-actions-min-width
   padding-top: $space-4
   border-top: $border-width-hairline solid $color-border-default
+  align-items: stretch
 
   button,
   a
     width: 100%
     justify-content: center
-    box-sizing: border-box
 
 .login-forgot
   align-self: flex-start

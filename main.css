@@ -534,15 +534,16 @@ label > input[aria-invalid=true] + small {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  width: 100%;
+  width: fit-content;
+  min-width: 220px;
   padding-top: 16px;
   border-top: 1px solid #E7DDDE;
+  align-items: stretch;
 }
 .login-actions button,
 .login-actions a {
   width: 100%;
   justify-content: center;
-  box-sizing: border-box;
 }
 
 .login-forgot {
