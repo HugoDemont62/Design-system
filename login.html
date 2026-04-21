@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connexion — Design System</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+<div class="login-page">
+
+  <section class="login-form-panel">
+
+    <div class="login-theme-toggle">
+      <label class="toggle">
+        <input type="checkbox" id="theme-toggle" aria-label="Activer le thème sombre">
+        <span class="toggle__track"></span>
+        <span class="toggle__label">Mode sombre</span>
+      </label>
+    </div>
+
+    <h1 class="login-title">Connexion</h1>
+
+    <form id="login-form" class="login-fields" novalidate>
+
+      <label data-field="email">
+        <span>Adresse email</span>
+        <input
+          id="login-email"
+          type="text"
+          placeholder="vous@exemple.com"
+          required
+          pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
+          data-error="Veuillez entrer une adresse email valide"
+        >
+        <small data-default-text="Votre adresse email de connexion">Votre adresse email de connexion</small>
+      </label>
+
+      <label data-field="password">
+        <span>Mot de passe</span>
+        <span class="password-field">
+          <input
+            id="login-password"
+            type="password"
+            placeholder="••••••••"
+            required
+            minlength="8"
+            data-error="Le mot de passe doit faire au moins 8 caractères"
+          >
+          <button class="password-toggle" type="button" aria-controls="login-password" aria-label="Afficher le mot de passe" aria-pressed="false">
+            <img src="./oeil_ouvert.svg" alt="">
+          </button>
+        </span>
+        <small data-default-text="8 caractères minimum">8 caractères minimum</small>
+      </label>
+
+      <a href="#" class="link-primary login-forgot">Mot de passe oublié ?</a>
+
+      <label class="checkbox login-terms">
+        <input type="checkbox" id="login-terms" required>
+        <span class="checkbox__box"></span>
+        <span class="checkbox__label">J'accepte les conditions d'utilisation</span>
+      </label>
+
+      <div class="login-actions">
+        <button type="submit" class="btn-secondary">Se connecter</button>
+        <a href="#" class="btn-primary">Créer un compte</a>
+      </div>
+
+    </form>
+
+  </section>
+
+  <aside class="login-visual" aria-hidden="true">
+    <h2 class="login-visual-quote">Design<br>System</h2>
+    <p class="login-visual-sub">Tokens · Composants · UI</p>
+  </aside>
+
+</div>
+<script src="./main.js"></script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doc — Input</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body class="doc-page">
+  <nav class="doc-nav">
+    <a href="index.html">← Accueil</a>
+    <a href="doc-button.html">Bouton</a>
+    <a href="doc-link.html">Lien</a>
+    <a href="doc-checkbox.html">Checkbox</a>
+  </nav>
+
+  <h1>Text &amp; Password Input</h1>
+  <p>Champ texte avec label, placeholder, texte d'aide. Variante password avec afficher/masquer.</p>
+
+  <div class="doc-section">
+    <h2>Text Input — États</h2>
+    <div class="doc-demo-col">
+      <label>
+        <span>Label</span>
+        <input type="text" placeholder="Placeholder">
+        <small data-default-text="Texte d'aide">Texte d'aide</small>
+      </label>
+
+      <label>
+        <span>Focus (cliquez dans le champ)</span>
+        <input type="text" placeholder="Cliquez ici">
+        <small data-default-text="Ce champ obtient le focus">Ce champ obtient le focus</small>
+      </label>
+
+      <label class="is-error">
+        <span>Erreur</span>
+        <input type="text" aria-invalid="true" value="Valeur invalide">
+        <small data-default-text="Message d'erreur">Message d'erreur</small>
+      </label>
+
+      <label>
+        <span>Disabled</span>
+        <input type="text" placeholder="Non éditable" disabled>
+        <small data-default-text="Ce champ est désactivé">Ce champ est désactivé</small>
+      </label>
+    </div>
+
+    <h2>Password Input</h2>
+    <div class="doc-demo-col">
+      <label>
+        <span>Mot de passe</span>
+        <span class="password-field">
+          <input id="doc-pwd" type="password" placeholder="••••••••">
+          <button class="password-toggle" type="button" aria-controls="doc-pwd" aria-label="Afficher le mot de passe" aria-pressed="false">
+            <img src="./oeil_ouvert.svg" alt="">
+          </button>
+        </span>
+        <small data-default-text="8 caractères minimum">8 caractères minimum</small>
+      </label>
+    </div>
+
+    <h2>Tokens exposés</h2>
+    <table class="doc-table">
+      <thead>
+        <tr><th>Token SASS</th><th>Rôle</th><th>Valeur par défaut</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>$input-background</code></td><td>Fond du champ</td><td>→ <code>$color-surface</code></td></tr>
+        <tr><td><code>$input-border-color</code></td><td>Bordure par défaut</td><td>→ <code>$color-brand-200</code></td></tr>
+        <tr><td><code>$input-border-color-focus</code></td><td>Bordure focus</td><td>→ <code>$color-brand-400</code></td></tr>
+        <tr><td><code>$input-border-color-error</code></td><td>Bordure erreur</td><td>→ <code>$color-danger</code></td></tr>
+        <tr><td><code>$input-text-color</code></td><td>Couleur texte saisi</td><td>→ <code>$color-text-primary</code></td></tr>
+        <tr><td><code>$input-placeholder-color</code></td><td>Couleur placeholder</td><td>→ <code>$color-neutral-500</code></td></tr>
+        <tr><td><code>$input-helper-color</code></td><td>Couleur texte d'aide</td><td>→ <code>$color-text-secondary</code></td></tr>
+        <tr><td><code>$input-helper-color-error</code></td><td>Couleur texte d'aide erreur</td><td>→ <code>$color-danger</code></td></tr>
+      </tbody>
+    </table>
+
+    <h2>Utilisation</h2>
+    <pre class="doc-pre"><code>&lt;!-- Text input --&gt;
+&lt;label&gt;
+  &lt;span&gt;Label&lt;/span&gt;
+  &lt;input type="text" placeholder="Placeholder"&gt;
+  &lt;small data-default-text="Aide"&gt;Aide&lt;/small&gt;
+&lt;/label&gt;
+
+&lt;!-- État erreur --&gt;
+&lt;label class="is-error"&gt;...&lt;/label&gt;
+
+&lt;!-- Password input --&gt;
+&lt;label&gt;
+  &lt;span&gt;Mot de passe&lt;/span&gt;
+  &lt;span class="password-field"&gt;
+    &lt;input id="pwd" type="password"&gt;
+    &lt;button class="password-toggle" aria-controls="pwd" aria-pressed="false"&gt;
+      &lt;img src="./oeil_ouvert.svg" alt=""&gt;
+    &lt;/button&gt;
+  &lt;/span&gt;
+&lt;/label&gt;</code></pre>
+  </div>
+
+  <script src="./main.js"></script>
+</body>
+</html>

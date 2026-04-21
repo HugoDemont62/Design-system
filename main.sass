@@ -73,9 +73,8 @@ $color-on-warning: $color-neutral-800
 $color-on-danger: $color-neutral-0
 
 // Typography
-$font-family-base: "Reggae", "Segoe UI", Arial, sans-serif
-$font-family-display: "Reggae", "Segoe UI", Arial, sans-serif
-$font-family-secondary: "Raleway", sans-serif
+$font-family-base: "Raleway", "Segoe UI", Arial, sans-serif
+$font-family-display: "Reggae", sans-serif
 
 $font-size-xs: 12px
 $font-size-sm: 14px
@@ -202,6 +201,32 @@ $input-placeholder-color: $color-neutral-500
 $input-helper-color: $color-text-secondary
 $input-helper-color-error: $color-danger
 
+// Checkbox tokens
+$checkbox-size: 24px
+$checkbox-border: $color-brand-200
+$checkbox-border-checked: $color-brand
+$checkbox-bg: $color-surface
+$checkbox-bg-checked: $color-brand
+$checkbox-checkmark: $color-on-brand
+$checkbox-disabled-border: $color-neutral-300
+$checkbox-disabled-bg: $color-neutral-100
+$checkbox-disabled-fg: $color-text-tertiary
+
+// Dark theme primitives
+$dark-bg: $color-neutral-800
+$dark-surface: $color-neutral-700
+$dark-surface-muted: $color-neutral-600
+$dark-text-primary: $color-neutral-0
+$dark-text-secondary: $color-neutral-200
+$dark-text-tertiary: $color-neutral-300
+$dark-border: $color-neutral-600
+$dark-border-strong: $color-neutral-500
+
+// Button size sm tokens
+$btn-sm-font-size: $font-size-md
+$btn-sm-padding-v: $space-2
+$btn-sm-padding-h: $space-6
+
 // ------------------------------------
 // SASS
 // -------------------------------------
@@ -218,6 +243,11 @@ body
   line-height: $line-height-normal
   color: $color-text-primary
   background: $color-background
+
+h1, h2, h3
+  font-family: $font-family-display
+  font-weight: $font-weight-regular
+  line-height: $line-height-tight
 
 // ------------------------------------
 // BTN
@@ -322,6 +352,39 @@ button.btn-tertiary
     background-color: $btn-tertiary-bg-active
     border-color: transparent
     color: $btn-tertiary-fg
+
+// Button size sm
+a.btn-primary.btn-sm,
+button.btn-primary.btn-sm,
+a.btn-secondary.btn-sm,
+button.btn-secondary.btn-sm,
+a.btn-tertiary.btn-sm,
+button.btn-tertiary.btn-sm
+  font-size: $btn-sm-font-size
+  padding: $btn-sm-padding-v $btn-sm-padding-h
+
+// Disabled states
+a.btn-primary[disabled],
+button.btn-primary:disabled,
+a.btn-primary[aria-disabled="true"]
+  opacity: 0.4
+  cursor: not-allowed
+  pointer-events: none
+
+a.btn-secondary[disabled],
+button.btn-secondary:disabled,
+a.btn-secondary[aria-disabled="true"]
+  opacity: 0.4
+  cursor: not-allowed
+  pointer-events: none
+
+a.btn-tertiary[disabled],
+button.btn-tertiary:disabled,
+a.btn-tertiary[aria-disabled="true"]
+  opacity: 0.4
+  cursor: not-allowed
+  pointer-events: none
+
 //--------------------------------
 
 
@@ -403,7 +466,7 @@ label
 
   > input[type="text"],
   > input[type="password"],
-  > .password-field > input[type="password"]
+  > .password-field > input
     width: 100%
     min-height: 80px
     padding: $space-4 $space-6
@@ -432,7 +495,7 @@ label
   &.is-error
     > input[type="text"],
     > input[type="password"],
-    > .password-field > input[type="password"]
+    > .password-field > input
       border-color: $input-border-color-error
 
     > small
@@ -442,7 +505,7 @@ label
   display: block
   position: relative
 
-  > input[type="password"]
+  > input
     padding-right: $space-16
 
   > .password-toggle
@@ -468,4 +531,488 @@ label > input[aria-invalid="true"] + small
   color: $input-helper-color-error
 
 // -------------------------------------
+// Checkbox
 
+.checkbox
+  display: inline-flex
+  align-items: center
+  gap: $space-3
+  cursor: pointer
+  user-select: none
+  width: auto
+
+  > input[type="checkbox"]
+    position: absolute
+    opacity: 0
+    width: 0
+    height: 0
+    pointer-events: none
+
+  &__box
+    flex-shrink: 0
+    display: inline-flex
+    align-items: center
+    justify-content: center
+    width: $checkbox-size
+    height: $checkbox-size
+    border-radius: $radius-sm
+    border: $border-width-regular solid $checkbox-border
+    background: $checkbox-bg
+    transition: background-color $motion-duration-fast $motion-easing-standard, border-color $motion-duration-fast $motion-easing-standard
+
+    &::after
+      content: ""
+      display: block
+      width: 6px
+      height: 11px
+      border: $border-width-regular solid $checkbox-checkmark
+      border-top: 0
+      border-left: 0
+      transform: rotate(45deg) translateY(-1px)
+      opacity: 0
+      transition: opacity $motion-duration-fast $motion-easing-standard
+
+  &__label
+    font-family: $font-family-base
+    font-size: $font-size-xl
+    color: $color-text-primary
+
+  &:hover > input[type="checkbox"]:not(:disabled) ~ .checkbox__box
+    border-color: $checkbox-border-checked
+
+  &:has(> input[type="checkbox"]:disabled)
+    cursor: not-allowed
+
+.checkbox > input[type="checkbox"]:checked ~ .checkbox__box
+  background: $checkbox-bg-checked
+  border-color: $checkbox-border-checked
+  &::after
+    opacity: 1
+
+.checkbox > input[type="checkbox"]:indeterminate ~ .checkbox__box
+  background: $checkbox-bg-checked
+  border-color: $checkbox-border-checked
+  &::after
+    width: 10px
+    height: 0
+    border: 0
+    border-bottom: $border-width-regular solid $checkbox-checkmark
+    transform: none
+    opacity: 1
+    margin-bottom: 1px
+
+.checkbox > input[type="checkbox"]:focus-visible ~ .checkbox__box
+  outline: $border-width-regular solid $input-border-color-focus
+  outline-offset: $space-1
+
+.checkbox > input[type="checkbox"]:disabled ~ .checkbox__box
+  background: $checkbox-disabled-bg
+  border-color: $checkbox-disabled-border
+  cursor: not-allowed
+  &::after
+    border-color: $checkbox-disabled-fg
+
+.checkbox > input[type="checkbox"]:disabled ~ .checkbox__label
+  color: $checkbox-disabled-fg
+  cursor: not-allowed
+
+// Toggle (checkbox modifier pour le thème)
+.toggle
+  display: inline-flex
+  align-items: center
+  gap: $space-3
+  cursor: pointer
+  user-select: none
+
+  > input[type="checkbox"]
+    position: absolute
+    opacity: 0
+    width: 0
+    height: 0
+    pointer-events: none
+
+  &__track
+    flex-shrink: 0
+    width: $space-12
+    height: 28px
+    border-radius: $radius-full
+    background: $color-neutral-300
+    border: $border-width-hairline solid $color-border-strong
+    position: relative
+    transition: background-color $motion-duration-fast $motion-easing-standard
+
+    &::after
+      content: ""
+      position: absolute
+      top: 3px
+      left: 3px
+      width: $space-5
+      height: $space-5
+      border-radius: $radius-full
+      background: $color-neutral-0
+      transition: transform $motion-duration-fast $motion-easing-standard, background-color $motion-duration-fast $motion-easing-standard
+      box-shadow: $shadow-xs
+
+.toggle > input[type="checkbox"]:checked ~ .toggle__track
+  background: $color-brand
+  border-color: $color-brand
+  &::after
+    transform: translateX($space-5)
+
+.toggle > input[type="checkbox"]:focus-visible ~ .toggle__track
+  outline: $border-width-regular solid $input-border-color-focus
+  outline-offset: $space-1
+
+  &__label
+    font-family: $font-family-base
+    font-size: $font-size-xl
+    color: $color-text-primary
+
+// -------------------------------------
+
+// -------------------------------------
+// Page tokens
+
+$login-visual-bg-start: $color-brand-300
+$login-visual-bg-mid: $color-brand-600
+$login-visual-bg-end: $color-neutral-800
+$login-visual-text: $color-neutral-0
+$login-visual-sub-color: rgba($color-neutral-0, 0.6)
+$login-visual-glow-a: rgba($color-brand-300, 0.3)
+$login-visual-glow-b: rgba($color-brand-50, 0.1)
+
+$hub-card-border: $color-border-default
+$hub-card-border-hover: $color-brand
+$hub-card-text-secondary: $color-text-secondary
+
+$doc-bg-muted: $color-surface-muted
+$doc-border: $color-border-default
+$doc-text-meta: $color-text-secondary
+
+// -------------------------------------
+
+// -------------------------------------
+// Login page
+
+.login-page
+  min-height: 100vh
+  display: grid
+  grid-template-columns: 1fr 1fr
+
+.login-form-panel
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: flex-start
+  padding: $space-12 $space-16
+  gap: $space-8
+  max-width: 640px
+  width: 100%
+  margin: 0 auto
+
+.login-theme-toggle
+  margin-bottom: $space-2
+
+.login-title
+  font-size: $font-size-4xl
+  margin: 0
+
+.login-fields
+  display: flex
+  flex-direction: column
+  gap: $space-6
+  width: 100%
+
+.login-actions
+  display: flex
+  flex-direction: column
+  gap: $space-4
+  width: 100%
+  align-items: flex-start
+
+  button,
+  a
+    width: 100%
+    justify-content: center
+
+.login-forgot
+  align-self: flex-end
+  font-size: $font-size-md
+
+.login-terms
+  display: flex
+  align-items: center
+
+.login-visual
+  background: linear-gradient(135deg, $login-visual-bg-start 0%, $login-visual-bg-mid 50%, $login-visual-bg-end 100%)
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+  padding: $space-12
+  position: relative
+  overflow: hidden
+
+  &::before
+    content: ""
+    position: absolute
+    inset: 0
+    background-image: radial-gradient(circle at 20% 80%, $login-visual-glow-a 0%, transparent 50%), radial-gradient(circle at 80% 20%, $login-visual-glow-b 0%, transparent 40%)
+
+.login-visual-quote
+  color: $login-visual-text
+  text-align: center
+  position: relative
+  z-index: 1
+  margin: 0
+
+.login-visual-sub
+  font-size: $font-size-xl
+  color: $login-visual-sub-color
+  margin-top: $space-4
+  position: relative
+  z-index: 1
+
+@media (max-width: 768px)
+  .login-page
+    grid-template-columns: 1fr
+
+  .login-visual
+    min-height: 220px
+    order: -1
+
+  .login-form-panel
+    padding: $space-8 $space-6
+
+  .login-title
+    font-size: $font-size-3xl
+
+// -------------------------------------
+
+// -------------------------------------
+// Hub (index)
+
+.hub
+  padding: $space-12 $space-16
+  max-width: 900px
+  margin: 0 auto
+
+.hub-subtitle
+  font-size: $font-size-lg
+  color: $hub-card-text-secondary
+  margin: 0
+
+.hub-grid
+  display: grid
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr))
+  gap: $space-4
+  margin-top: $space-8
+
+.hub-card
+  border: $border-width-regular solid $hub-card-border
+  border-radius: $radius-lg
+  padding: $space-6
+  text-decoration: none
+  color: inherit
+  transition: border-color $motion-duration-fast $motion-easing-standard
+  display: block
+
+  &:hover
+    border-color: $hub-card-border-hover
+
+  h2
+    font-size: $font-size-xl
+    margin: 0 0 $space-2
+
+  p
+    font-size: $font-size-sm
+    margin: 0
+    color: $hub-card-text-secondary
+
+.hub-action
+  margin-top: $space-8
+  display: inline-block
+
+// -------------------------------------
+
+// -------------------------------------
+// Doc pages shared
+
+.doc-page
+  padding: $space-12 $space-16
+  max-width: 900px
+  margin: 0 auto
+
+.doc-nav
+  margin-bottom: $space-8
+  font-size: $font-size-md
+
+  a
+    color: $color-brand
+    margin-right: $space-4
+    text-decoration: none
+
+    &:hover
+      text-decoration: underline
+
+.doc-section
+  h2
+    font-size: $font-size-2xl
+    margin: 40px 0 $space-4
+    border-bottom: $border-width-regular solid $doc-border
+    padding-bottom: $space-2
+
+.doc-demo-row
+  display: flex
+  flex-wrap: wrap
+  gap: $space-4
+  align-items: center
+  margin-bottom: $space-4
+
+.doc-demo-col
+  display: flex
+  flex-direction: column
+  gap: $space-6
+  margin-bottom: $space-4
+
+.doc-demo-col--sm
+  gap: $space-4
+
+.doc-label
+  font-size: $font-size-sm
+  color: $doc-text-meta
+  min-width: 90px
+
+.doc-demo-dark
+  background: $color-neutral-800
+  padding: $space-4
+  border-radius: $radius-md
+  display: flex
+  gap: $space-6
+  align-items: center
+
+  .doc-label
+    color: $color-neutral-200
+
+.doc-table
+  width: 100%
+  border-collapse: collapse
+  font-size: $font-size-sm
+
+  th,
+  td
+    text-align: left
+    padding: $space-2 $space-3
+    border-bottom: $border-width-hairline solid $doc-border
+
+  th
+    font-weight: $font-weight-semibold
+    background: $doc-bg-muted
+
+.doc-pre
+  background: $doc-bg-muted
+  padding: $space-4
+  border-radius: $radius-md
+  font-size: 13px
+  overflow-x: auto
+
+// -------------------------------------
+
+// -------------------------------------
+// Dark theme
+
+.theme-dark
+  background: $dark-bg
+  color: $dark-text-primary
+
+  a.btn-primary,
+  button.btn-primary
+    color: $color-brand-100
+    background-color: $dark-surface
+    border-color: $color-brand-100
+
+    &:hover,
+    &:focus
+      background-color: $dark-surface-muted
+
+    &:active
+      background-color: $dark-border
+
+  a.btn-secondary,
+  button.btn-secondary
+    background-color: $color-brand-300
+    border-color: $color-brand-300
+
+    &:hover,
+    &:focus
+      background-color: $color-brand-200
+      border-color: $color-brand-200
+
+  a.btn-tertiary,
+  button.btn-tertiary
+    background-color: $dark-surface
+    color: $dark-text-primary
+    border-color: transparent
+
+    &:hover,
+    &:focus
+      background-color: $dark-surface-muted
+
+  a.link,
+  a.link-primary
+    color: $color-brand-100
+
+  a.link-secondary,
+  button.link-secondary
+    color: $dark-text-secondary
+
+  label
+    > span:not(.password-field)
+      color: $dark-text-primary
+
+    > small
+      color: $dark-text-secondary
+
+    > input[type="text"],
+    > input[type="password"],
+    > .password-field > input
+      background: $dark-surface
+      border-color: $dark-border
+      color: $dark-text-primary
+
+      &::placeholder
+        color: $dark-text-tertiary
+
+      &:focus,
+      &:focus-visible
+        border-color: $color-brand-200
+        box-shadow: 0 0 0 2px rgba($color-brand-200, 0.2)
+
+    &.is-error
+      > input[type="text"],
+      > input[type="password"],
+      > .password-field > input
+        border-color: $color-brand-100
+
+      > small
+        color: $color-brand-100
+
+  .checkbox__box
+    background: $dark-surface
+    border-color: $dark-border
+
+  .checkbox__label
+    color: $dark-text-primary
+
+  .checkbox > input[type="checkbox"]:checked ~ .checkbox__box,
+  .checkbox > input[type="checkbox"]:indeterminate ~ .checkbox__box
+    background: $color-brand-300
+    border-color: $color-brand-300
+
+  .toggle__label
+    color: $dark-text-primary
+
+  .toggle > input[type="checkbox"]:not(:checked) ~ .toggle__track
+    background: $dark-border
+
+// -------------------------------------

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doc — Bouton</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body class="doc-page">
+  <nav class="doc-nav">
+    <a href="index.html">← Accueil</a>
+    <a href="doc-link.html">Lien</a>
+    <a href="doc-input.html">Input</a>
+    <a href="doc-checkbox.html">Checkbox</a>
+  </nav>
+
+  <h1>Bouton</h1>
+  <p>Trois variants (Primary, Secondary, Tertiary), deux tailles. Usage sur <code>&lt;button&gt;</code> ou <code>&lt;a&gt;</code>.</p>
+
+  <div class="doc-section">
+    <h2>Variants</h2>
+    <div class="doc-demo-row">
+      <span class="doc-label">Primary</span>
+      <button class="btn-primary">Label</button>
+    </div>
+    <div class="doc-demo-row">
+      <span class="doc-label">Secondary</span>
+      <button class="btn-secondary">Label</button>
+    </div>
+    <div class="doc-demo-row">
+      <span class="doc-label">Tertiary</span>
+      <button class="btn-tertiary">Label</button>
+    </div>
+
+    <h2>Tailles</h2>
+    <div class="doc-demo-row">
+      <span class="doc-label">Default</span>
+      <button class="btn-primary">Primary</button>
+      <button class="btn-secondary">Secondary</button>
+      <button class="btn-tertiary">Tertiary</button>
+    </div>
+    <div class="doc-demo-row">
+      <span class="doc-label">Small</span>
+      <button class="btn-primary btn-sm">Primary</button>
+      <button class="btn-secondary btn-sm">Secondary</button>
+      <button class="btn-tertiary btn-sm">Tertiary</button>
+    </div>
+
+    <h2>États</h2>
+    <div class="doc-demo-row">
+      <span class="doc-label">Hover/Focus</span>
+      <p class="doc-label">Survolez les boutons ci-dessus pour voir l'état hover.</p>
+    </div>
+    <div class="doc-demo-row">
+      <span class="doc-label">Disabled</span>
+      <button class="btn-primary" disabled>Primary</button>
+      <button class="btn-secondary" disabled>Secondary</button>
+      <button class="btn-tertiary" disabled>Tertiary</button>
+    </div>
+
+    <h2>Tokens exposés</h2>
+    <table class="doc-table">
+      <thead>
+        <tr><th>Token SASS</th><th>Rôle</th><th>Valeur par défaut</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>$btn-primary-color</code></td><td>Couleur texte/bordure Primary</td><td>→ <code>$color-brand</code></td></tr>
+        <tr><td><code>$btn-primary-background-hover</code></td><td>Fond hover Primary</td><td>→ <code>$color-brand-100</code></td></tr>
+        <tr><td><code>$btn-primary-background-active</code></td><td>Fond active Primary</td><td>→ <code>$color-brand-200</code></td></tr>
+        <tr><td><code>$btn-secondary-background</code></td><td>Fond Secondary</td><td>→ <code>$color-brand</code></td></tr>
+        <tr><td><code>$btn-secondary-color</code></td><td>Texte Secondary</td><td>→ <code>$color-on-brand</code></td></tr>
+        <tr><td><code>$btn-tertiary-bg</code></td><td>Fond Tertiary</td><td>→ <code>$color-neutral-800</code></td></tr>
+        <tr><td><code>$btn-sm-font-size</code></td><td>Taille texte sm</td><td>→ <code>$font-size-md</code></td></tr>
+        <tr><td><code>$btn-sm-padding-v</code></td><td>Padding vertical sm</td><td>→ <code>$space-2</code></td></tr>
+        <tr><td><code>$btn-sm-padding-h</code></td><td>Padding horizontal sm</td><td>→ <code>$space-6</code></td></tr>
+      </tbody>
+    </table>
+
+    <h2>Utilisation</h2>
+    <pre class="doc-pre"><code>&lt;button class="btn-primary"&gt;Label&lt;/button&gt;
+&lt;button class="btn-primary btn-sm"&gt;Label sm&lt;/button&gt;
+&lt;button class="btn-secondary" disabled&gt;Désactivé&lt;/button&gt;
+&lt;a class="btn-tertiary" href="..."&gt;Lien bouton&lt;/a&gt;</code></pre>
+  </div>
+</body>
+</html>

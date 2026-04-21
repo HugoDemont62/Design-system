@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doc — Lien</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body class="doc-page">
+  <nav class="doc-nav">
+    <a href="index.html">← Accueil</a>
+    <a href="doc-button.html">Bouton</a>
+    <a href="doc-input.html">Input</a>
+    <a href="doc-checkbox.html">Checkbox</a>
+  </nav>
+
+  <h1>Lien</h1>
+  <p>Deux variants. Le lien secondary est conçu pour les fonds sombres.</p>
+
+  <div class="doc-section">
+    <h2>Variants</h2>
+    <div class="doc-demo-row">
+      <span class="doc-label">Primary</span>
+      <a href="#" class="link-primary">Lien principal</a>
+    </div>
+    <div class="doc-demo-row doc-demo-dark">
+      <span class="doc-label">Secondary</span>
+      <a href="#" class="link-secondary">Lien secondaire</a>
+    </div>
+
+    <h2>États</h2>
+    <div class="doc-demo-row">
+      <span class="doc-label">Hover/Focus</span>
+      <a href="#" class="link-primary">Survolez-moi</a>
+    </div>
+    <div class="doc-demo-row doc-demo-dark">
+      <span class="doc-label">Visited</span>
+      <a href="doc-link.html" class="link-secondary">Lien visité</a>
+    </div>
+
+    <h2>Tokens exposés</h2>
+    <table class="doc-table">
+      <thead>
+        <tr><th>Token SASS</th><th>Rôle</th><th>Valeur par défaut</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>$link-primary-color</code></td><td>Couleur texte Primary</td><td>→ <code>$color-brand</code></td></tr>
+        <tr><td><code>$link-primary-color-active</code></td><td>Couleur active Primary</td><td>→ <code>$color-brand-100</code></td></tr>
+        <tr><td><code>$link-secondary-color</code></td><td>Couleur texte Secondary</td><td>→ <code>$color-neutral-100</code></td></tr>
+        <tr><td><code>$link-secondary-color-visited</code></td><td>Couleur visited Secondary</td><td><code>#FD81F0</code></td></tr>
+        <tr><td><code>$link-secondary-color-active</code></td><td>Couleur active Secondary</td><td>→ <code>$color-neutral-0</code></td></tr>
+      </tbody>
+    </table>
+
+    <h2>Utilisation</h2>
+    <pre class="doc-pre"><code>&lt;a href="..." class="link-primary"&gt;Lien principal&lt;/a&gt;
+&lt;a href="..." class="link-secondary"&gt;Lien secondaire&lt;/a&gt;</code></pre>
+  </div>
+</body>
+</html>

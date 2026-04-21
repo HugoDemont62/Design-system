@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doc — Checkbox</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body class="doc-page">
+  <nav class="doc-nav">
+    <a href="index.html">← Accueil</a>
+    <a href="doc-button.html">Bouton</a>
+    <a href="doc-link.html">Lien</a>
+    <a href="doc-input.html">Input</a>
+  </nav>
+
+  <h1>Checkbox</h1>
+  <p>Quatre états : unchecked, checked, indeterminate, disabled. Le composant <strong>Toggle</strong> est un modificateur CSS de la checkbox.</p>
+
+  <div class="doc-section">
+    <h2>États Checkbox</h2>
+    <div class="doc-demo-col doc-demo-col--sm">
+      <label class="checkbox">
+        <input type="checkbox">
+        <span class="checkbox__box"></span>
+        <span class="checkbox__label">Unchecked</span>
+      </label>
+
+      <label class="checkbox">
+        <input type="checkbox" checked>
+        <span class="checkbox__box"></span>
+        <span class="checkbox__label">Checked</span>
+      </label>
+
+      <label class="checkbox">
+        <input type="checkbox" data-indeterminate>
+        <span class="checkbox__box"></span>
+        <span class="checkbox__label">Indeterminate</span>
+      </label>
+
+      <label class="checkbox">
+        <input type="checkbox" disabled>
+        <span class="checkbox__box"></span>
+        <span class="checkbox__label">Disabled unchecked</span>
+      </label>
+
+      <label class="checkbox">
+        <input type="checkbox" checked disabled>
+        <span class="checkbox__box"></span>
+        <span class="checkbox__label">Disabled checked</span>
+      </label>
+    </div>
+
+    <h2>Toggle (modificateur)</h2>
+    <div class="doc-demo-col doc-demo-col--sm">
+      <label class="toggle">
+        <input type="checkbox">
+        <span class="toggle__track"></span>
+        <span class="toggle__label">Off</span>
+      </label>
+
+      <label class="toggle">
+        <input type="checkbox" checked>
+        <span class="toggle__track"></span>
+        <span class="toggle__label">On</span>
+      </label>
+    </div>
+
+    <h2>Tokens exposés</h2>
+    <table class="doc-table">
+      <thead>
+        <tr><th>Token SASS</th><th>Rôle</th><th>Valeur par défaut</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>$checkbox-size</code></td><td>Taille de la case</td><td><code>24px</code></td></tr>
+        <tr><td><code>$checkbox-border</code></td><td>Bordure unchecked</td><td>→ <code>$color-brand-200</code></td></tr>
+        <tr><td><code>$checkbox-border-checked</code></td><td>Bordure checked/indeterminate</td><td>→ <code>$color-brand</code></td></tr>
+        <tr><td><code>$checkbox-bg</code></td><td>Fond unchecked</td><td>→ <code>$color-surface</code></td></tr>
+        <tr><td><code>$checkbox-bg-checked</code></td><td>Fond checked/indeterminate</td><td>→ <code>$color-brand</code></td></tr>
+        <tr><td><code>$checkbox-checkmark</code></td><td>Couleur du crochet</td><td>→ <code>$color-on-brand</code></td></tr>
+        <tr><td><code>$checkbox-disabled-border</code></td><td>Bordure disabled</td><td>→ <code>$color-neutral-300</code></td></tr>
+        <tr><td><code>$checkbox-disabled-bg</code></td><td>Fond disabled</td><td>→ <code>$color-neutral-100</code></td></tr>
+        <tr><td><code>$checkbox-disabled-fg</code></td><td>Crochet + label disabled</td><td>→ <code>$color-text-tertiary</code></td></tr>
+      </tbody>
+    </table>
+
+    <h2>Utilisation</h2>
+    <pre class="doc-pre"><code>&lt;!-- Checkbox --&gt;
+&lt;label class="checkbox"&gt;
+  &lt;input type="checkbox"&gt;
+  &lt;span class="checkbox__box"&gt;&lt;/span&gt;
+  &lt;span class="checkbox__label"&gt;Label&lt;/span&gt;
+&lt;/label&gt;
+
+&lt;!-- Indeterminate : ajouter data-indeterminate, JS le gère --&gt;
+&lt;input type="checkbox" data-indeterminate&gt;
+
+&lt;!-- Toggle --&gt;
+&lt;label class="toggle"&gt;
+  &lt;input type="checkbox"&gt;
+  &lt;span class="toggle__track"&gt;&lt;/span&gt;
+  &lt;span class="toggle__label"&gt;Label&lt;/span&gt;
+&lt;/label&gt;</code></pre>
+  </div>
+
+  <script src="./main.js"></script>
+</body>
+</html>
