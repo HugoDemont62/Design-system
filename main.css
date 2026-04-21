@@ -156,7 +156,7 @@ a.link-primary:focus-visible::before {
 }
 a.link:active,
 a.link-primary:active {
-  color: #F33F4E;
+  color: #F88790;
 }
 
 a.link-secondary,
@@ -193,11 +193,104 @@ button.link-secondary:focus-visible::before {
 }
 a.link-secondary:visited,
 button.link-secondary:visited {
-  color: #F9F5F5;
+  color: #FD81F0;
 }
 a.link-secondary:active,
 button.link-secondary:active {
   color: #FFFFFF;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: min(100%, 640px);
+}
+label > span:not(.password-field) {
+  font-family: "Reggae", "Segoe UI", Arial, sans-serif;
+  font-size: 26px;
+  font-weight: 400;
+  color: #110D0E;
+}
+label > small {
+  font-family: "Reggae", "Segoe UI", Arial, sans-serif;
+  font-size: 20px;
+  font-style: italic;
+  color: #59504F;
+}
+label > input[type=text],
+label > input[type=password],
+label > .password-field > input[type=password] {
+  width: 100%;
+  min-height: 80px;
+  padding: 16px 24px;
+  border-radius: 12px;
+  border: 2px solid #F33F4E;
+  background: #FFFFFF;
+  color: #110D0E;
+  font-family: "Reggae", "Segoe UI", Arial, sans-serif;
+  font-size: 44px;
+  font-weight: 600;
+  line-height: 1.1;
+  transition: border-color 120ms cubic-bezier(0.2, 0, 0, 1), box-shadow 120ms cubic-bezier(0.2, 0, 0, 1);
+}
+label > input[type=text]::placeholder,
+label > input[type=password]::placeholder,
+label > .password-field > input[type=password]::placeholder {
+  color: #7E696D;
+}
+label > input[type=text]:focus, label > input[type=text]:focus-visible,
+label > input[type=password]:focus,
+label > input[type=password]:focus-visible,
+label > .password-field > input[type=password]:focus,
+label > .password-field > input[type=password]:focus-visible {
+  border-color: #D10D1D;
+  box-shadow: 0 0 0 2px rgba(209, 13, 29, 0.2);
+  outline: none;
+}
+label > input[type=text][aria-invalid=true],
+label > input[type=password][aria-invalid=true],
+label > .password-field > input[type=password][aria-invalid=true] {
+  border-color: #D10D1D;
+}
+label.is-error > input[type=text],
+label.is-error > input[type=password],
+label.is-error > .password-field > input[type=password] {
+  border-color: #D10D1D;
+}
+label.is-error > small {
+  color: #D10D1D;
+}
+
+.password-field {
+  display: block;
+  position: relative;
+}
+.password-field > input[type=password] {
+  padding-right: 64px;
+}
+.password-field > .password-toggle {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%);
+  border: 0;
+  background: transparent;
+  padding: 4px;
+  cursor: pointer;
+}
+.password-field > .password-toggle:focus-visible {
+  outline: 2px solid #D10D1D;
+  outline-offset: 4px;
+}
+.password-field > .password-toggle > img {
+  display: block;
+  width: 36px;
+  height: 36px;
+}
+
+label > input[aria-invalid=true] + small {
+  color: #D10D1D;
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -5,34 +5,52 @@
     <title>Design system</title>
     <link rel="stylesheet" href="main.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ </head>
 <body>
-<a class="btn-primary">
-    日本五
-</a>
+<a class="btn-primary">Primary</a>
 
-<a class="btn-secondary">
-    日本五
-</a>
+<a class="btn-secondary">Secondary</a>
 
-<a class="btn-tertiary">
-    日本五
-</a>
+<a class="btn-tertiary">Tertiary</a>
 
-<a class="link-primary" href="./index.html">
-    日本五
-</a>
+<a class="link-primary" href="./index.html">Lien principal</a>
 
-<a class="link-secondary" href="./index.html">
-    日本五
-</a>
+<a class="link-secondary" href="./index.html">Lien secondaire</a>
 
-<label>
-    <span>Label</span>
-    <input type="text" placeholder="Placeholder">
-    <small>Help text</small>
-</label>
+<form id="demo-form" novalidate>
+    <label data-field="text">
+        <span>Label Name</span>
+        <input
+            id="text-input"
+            type="text"
+            placeholder="Enter your text"
+            required
+            minlength="3"
+            pattern="^[A-Za-z' -]{3,}$"
+            data-error="Please enter at least 3 letters"
+        >
+        <small data-default-text="Helper text goes here">Helper text goes here</small>
+    </label>
 
-
-
+    <label data-field="password">
+        <span>Password</span>
+        <span class="password-field">
+            <input
+                id="password-input"
+                type="password"
+                placeholder="Enter your password"
+                required
+                minlength="8"
+                pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$"
+                data-error="Use 8+ chars with upper, lower and number"
+            >
+            <button class="password-toggle" type="button" aria-label="Afficher le mot de passe" aria-pressed="false">
+                <img src="./oeil_ouvert.svg" alt="">
+            </button>
+        </span>
+        <small data-default-text="Helper text goes here">Helper text goes here</small>
+    </label>
+</form>
+<script src="./main.js"></script>
 </body>
 </html>

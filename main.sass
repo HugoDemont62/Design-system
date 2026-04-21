@@ -187,11 +187,20 @@ $btn-tertiary-bg-active: $color-neutral-600
 $btn-tertiary-fg: $color-neutral-0
 
 $link-primary-color: $color-brand
-$link-primary-color-active: $color-brand-200
+$link-primary-color-active: $color-brand-100
 
 $link-secondary-color: $color-neutral-100
-$link-secondary-color-visited: $color-neutral-100
+$link-secondary-color-visited: #FD81F0
 $link-secondary-color-active: $color-neutral-0
+
+$input-background: $color-surface
+$input-border-color: $color-brand-200
+$input-border-color-focus: $color-brand-400
+$input-border-color-error: $color-danger
+$input-text-color: $color-text-primary
+$input-placeholder-color: $color-neutral-500
+$input-helper-color: $color-text-secondary
+$input-helper-color-error: $color-danger
 
 // ------------------------------------
 // SASS
@@ -370,3 +379,93 @@ button.link-secondary
     color: $link-secondary-color-active
 
 // -------------------------------------
+
+// -------------------------------------
+// Form fields
+
+label
+  display: flex
+  flex-direction: column
+  gap: $space-2
+  width: min(100%, 640px)
+
+  > span:not(.password-field)
+    font-family: $font-family-base
+    font-size: $font-size-2xl
+    font-weight: $font-weight-regular
+    color: $color-text-primary
+
+  > small
+    font-family: $font-family-base
+    font-size: $font-size-xl
+    font-style: italic
+    color: $input-helper-color
+
+  > input[type="text"],
+  > input[type="password"],
+  > .password-field > input[type="password"]
+    width: 100%
+    min-height: 80px
+    padding: $space-4 $space-6
+    border-radius: $radius-lg
+    border: $border-width-regular solid $input-border-color
+    background: $input-background
+    color: $input-text-color
+    font-family: $font-family-base
+    font-size: $font-size-4xl
+    font-weight: $font-weight-semibold
+    line-height: $line-height-tight
+    transition: border-color $motion-duration-fast $motion-easing-standard, box-shadow $motion-duration-fast $motion-easing-standard
+
+    &::placeholder
+      color: $input-placeholder-color
+
+    &:focus,
+    &:focus-visible
+      border-color: $input-border-color-focus
+      box-shadow: 0 0 0 2px rgba($input-border-color-focus, 0.2)
+      outline: none
+
+    &[aria-invalid="true"]
+      border-color: $input-border-color-error
+
+  &.is-error
+    > input[type="text"],
+    > input[type="password"],
+    > .password-field > input[type="password"]
+      border-color: $input-border-color-error
+
+    > small
+      color: $input-helper-color-error
+
+.password-field
+  display: block
+  position: relative
+
+  > input[type="password"]
+    padding-right: $space-16
+
+  > .password-toggle
+    position: absolute
+    top: 50%
+    right: $space-4
+    transform: translateY(-50%)
+    border: 0
+    background: transparent
+    padding: $space-1
+    cursor: pointer
+
+    &:focus-visible
+      outline: $border-width-regular solid $input-border-color-focus
+      outline-offset: $space-1
+
+    > img
+      display: block
+      width: 36px
+      height: 36px
+
+label > input[aria-invalid="true"] + small
+  color: $input-helper-color-error
+
+// -------------------------------------
+
