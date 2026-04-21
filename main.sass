@@ -186,6 +186,13 @@ $btn-tertiary-bg-hover: $color-neutral-400
 $btn-tertiary-bg-active: $color-neutral-600
 $btn-tertiary-fg: $color-neutral-0
 
+$link-primary-color: $color-brand
+$link-primary-color-active: $color-brand-200
+
+$link-secondary-color: $color-neutral-100
+$link-secondary-color-visited: $color-neutral-100
+$link-secondary-color-active: $color-neutral-0
+
 // ------------------------------------
 // SASS
 // -------------------------------------
@@ -203,6 +210,8 @@ body
   color: $color-text-primary
   background: $color-background
 
+// ------------------------------------
+// BTN
 a.btn-primary,
 a.btn-secondary,
 a.btn-tertiary
@@ -228,7 +237,6 @@ button.btn-primary
   color: $btn-primary-color
   background-color: $color-background
   border: $border-width-strong solid $btn-primary-color
-
 
   &:hover,
   &:focus
@@ -305,3 +313,60 @@ button.btn-tertiary
     background-color: $btn-tertiary-bg-active
     border-color: transparent
     color: $btn-tertiary-fg
+//--------------------------------
+
+
+// -------------------------------------
+// Link
+
+=link-base
+  display: inline-block
+  position: relative
+
+  font-family: $font-family-base
+  font-size: $font-size-3xl
+  font-weight: $font-weight-regular
+  line-height: $line-height-tight
+  text-decoration: underline
+  text-underline-offset: $space-1
+
+  padding-top: $space-2
+  transition: color $motion-duration-fast $motion-easing-standard
+
+  &::before
+    content: ""
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: $border-width-regular
+    background-color: currentColor
+    transform: scaleX(0)
+    transform-origin: left center
+    transition: transform $motion-duration-fast $motion-easing-standard
+
+  &:hover,
+  &:focus-visible
+    &::before
+      transform: scaleX(1)
+
+a.link,
+a.link-primary
+  +link-base
+  color: $link-primary-color
+
+  &:active
+    color: $link-primary-color-active
+
+a.link-secondary,
+button.link-secondary
+  +link-base
+  color: $link-secondary-color
+
+  &:visited
+    color: $link-secondary-color-visited
+
+  &:active
+    color: $link-secondary-color-active
+
+// -------------------------------------
