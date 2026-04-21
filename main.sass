@@ -76,14 +76,14 @@ $color-on-danger: $color-neutral-0
 $font-family-base: "Raleway", "Segoe UI", Arial, sans-serif
 $font-family-display: "Reggae", sans-serif
 
-$font-size-xs: 12px
-$font-size-sm: 14px
-$font-size-md: 16px
-$font-size-lg: 18px
-$font-size-xl: 20px
-$font-size-2xl: 26px
-$font-size-3xl: 34px
-$font-size-4xl: 44px
+$font-size-xs: 11px
+$font-size-sm: 13px
+$font-size-md: 15px
+$font-size-lg: 16px
+$font-size-xl: 17px
+$font-size-2xl: 20px
+$font-size-3xl: 26px
+$font-size-4xl: 34px
 
 $line-height-tight: 1.1
 $line-height-normal: 1.5
@@ -192,6 +192,8 @@ $link-secondary-color: $color-neutral-100
 $link-secondary-color-visited: #FD81F0
 $link-secondary-color-active: $color-neutral-0
 
+$input-min-height: 52px
+$input-font-size: $font-size-xl
 $input-background: $color-surface
 $input-border-color: $color-brand-200
 $input-border-color-focus: $color-brand-400
@@ -267,7 +269,7 @@ button.btn-primary
   width: fit-content
 
   font-family: $font-family-base
-  font-size: $font-size-xl
+  font-size: $font-size-2xl
   font-weight: $font-weight-regular
   text-decoration: none
 
@@ -471,14 +473,14 @@ label
   > input[type="password"],
   > .password-field > input
     width: 100%
-    min-height: 80px
+    min-height: $input-min-height
     padding: $space-4 $space-6
     border-radius: $radius-lg
     border: $border-width-regular solid $input-border-color
     background: $input-background
     color: $input-text-color
     font-family: $font-family-base
-    font-size: $font-size-4xl
+    font-size: $input-font-size
     font-weight: $font-weight-semibold
     line-height: $line-height-tight
     transition: border-color $motion-duration-fast $motion-easing-standard, box-shadow $motion-duration-fast $motion-easing-standard
@@ -856,15 +858,18 @@ $doc-text-meta: $color-text-secondary
 
 .doc-nav
   margin-bottom: $space-8
-  font-size: $font-size-md
+  display: flex
+  flex-wrap: wrap
+  gap: $space-1
 
   a
-    color: $color-brand
+    +link-base
+    font-size: $font-size-md
+    color: $link-primary-color
     margin-right: $space-4
-    text-decoration: none
 
-    &:hover
-      text-decoration: underline
+    &:active
+      color: $link-primary-color-active
 
 .doc-section
   h2
