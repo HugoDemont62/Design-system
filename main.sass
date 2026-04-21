@@ -253,7 +253,10 @@ h1, h2, h3
 // BTN
 a.btn-primary,
 a.btn-secondary,
-a.btn-tertiary
+a.btn-tertiary,
+button.btn-primary,
+button.btn-secondary,
+button.btn-tertiary
   border-radius: $radius-full
 
 a.btn-primary,
@@ -535,6 +538,7 @@ label > input[aria-invalid="true"] + small
 
 .checkbox
   display: inline-flex
+  flex-direction: row
   align-items: center
   gap: $space-3
   cursor: pointer
@@ -711,7 +715,10 @@ $doc-text-meta: $color-text-secondary
   margin: 0 auto
 
 .login-theme-toggle
-  margin-bottom: $space-2
+  margin-top: auto
+  padding-top: $space-6
+  border-top: $border-width-hairline solid $color-border-default
+  width: 100%
 
 .login-title
   font-size: $font-size-4xl
@@ -726,21 +733,25 @@ $doc-text-meta: $color-text-secondary
 .login-actions
   display: flex
   flex-direction: column
-  gap: $space-4
+  gap: $space-3
   width: 100%
-  align-items: flex-start
+  padding-top: $space-4
+  border-top: $border-width-hairline solid $color-border-default
 
   button,
   a
     width: 100%
     justify-content: center
+    box-sizing: border-box
 
 .login-forgot
-  align-self: flex-end
-  font-size: $font-size-md
+  align-self: flex-start
+  font-size: $font-size-sm
+  margin-top: -$space-2
 
 .login-terms
-  display: flex
+  width: auto
+  flex-direction: row
   align-items: center
 
 .login-visual

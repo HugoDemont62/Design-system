@@ -11,14 +11,6 @@
 
   <section class="login-form-panel">
 
-    <div class="login-theme-toggle">
-      <label class="toggle">
-        <input type="checkbox" id="theme-toggle" aria-label="Activer le thème sombre">
-        <span class="toggle__track"></span>
-        <span class="toggle__label">Mode sombre</span>
-      </label>
-    </div>
-
     <h1 class="login-title">Connexion</h1>
 
     <form id="login-form" class="login-fields" novalidate>
@@ -42,7 +34,7 @@
           <input
             id="login-password"
             type="password"
-            placeholder="••••••••"
+            placeholder="password"
             required
             minlength="8"
             data-error="Le mot de passe doit faire au moins 8 caractères"
@@ -68,6 +60,14 @@
       </div>
 
     </form>
+
+    <div class="login-theme-toggle">
+      <label class="toggle">
+        <input type="checkbox" id="theme-toggle" aria-label="Activer le thème sombre">
+        <span class="toggle__track"></span>
+        <span class="toggle__label">Mode sombre</span>
+      </label>
+    </div>
 
   </section>
 

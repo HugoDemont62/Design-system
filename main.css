@@ -30,7 +30,10 @@ h1, h2, h3 {
 
 a.btn-primary,
 a.btn-secondary,
-a.btn-tertiary {
+a.btn-tertiary,
+button.btn-primary,
+button.btn-secondary,
+button.btn-tertiary {
   border-radius: 50%;
 }
 
@@ -335,6 +338,7 @@ label > input[aria-invalid=true] + small {
 
 .checkbox {
   display: inline-flex;
+  flex-direction: row;
   align-items: center;
   gap: 12px;
   cursor: pointer;
@@ -499,7 +503,10 @@ label > input[aria-invalid=true] + small {
 }
 
 .login-theme-toggle {
-  margin-bottom: 8px;
+  margin-top: auto;
+  padding-top: 24px;
+  border-top: 1px solid #E7DDDE;
+  width: 100%;
 }
 
 .login-title {
@@ -517,23 +524,27 @@ label > input[aria-invalid=true] + small {
 .login-actions {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
   width: 100%;
-  align-items: flex-start;
+  padding-top: 16px;
+  border-top: 1px solid #E7DDDE;
 }
 .login-actions button,
 .login-actions a {
   width: 100%;
   justify-content: center;
+  box-sizing: border-box;
 }
 
 .login-forgot {
-  align-self: flex-end;
-  font-size: 16px;
+  align-self: flex-start;
+  font-size: 14px;
+  margin-top: -8px;
 }
 
 .login-terms {
-  display: flex;
+  width: auto;
+  flex-direction: row;
   align-items: center;
 }
 
