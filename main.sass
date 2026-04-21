@@ -207,9 +207,11 @@ $input-helper-color-error: $color-danger
 $checkbox-size: 24px
 $checkbox-border: $color-brand-200
 $checkbox-border-checked: $color-brand
-$checkbox-bg: $color-surface
-$checkbox-bg-checked: $color-brand
-$checkbox-checkmark: $color-on-brand
+$checkbox-bg: $RED_200
+$checkbox-bg-checked: $RED_200
+$checkbox-cross-svg: url("cross.svg")
+$checkbox-cross-size: 16px
+$checkbox-indeterminate-dash: $color-text-primary
 $checkbox-disabled-border: $color-neutral-300
 $checkbox-disabled-bg: $color-neutral-100
 $checkbox-disabled-fg: $color-text-tertiary
@@ -569,12 +571,10 @@ label > input[aria-invalid="true"] + small
     &::after
       content: ""
       display: block
-      width: 6px
-      height: 11px
-      border: $border-width-regular solid $checkbox-checkmark
-      border-top: 0
-      border-left: 0
-      transform: rotate(45deg) translateY(-1px)
+      width: $checkbox-cross-size
+      height: $checkbox-cross-size
+      flex-shrink: 0
+      background: transparent center / contain no-repeat
       opacity: 0
       transition: opacity $motion-duration-fast $motion-easing-standard
 
@@ -593,6 +593,7 @@ label > input[aria-invalid="true"] + small
   background: $checkbox-bg-checked
   border-color: $checkbox-border-checked
   &::after
+    background-image: $checkbox-cross-svg
     opacity: 1
 
 .checkbox > input[type="checkbox"]:indeterminate ~ .checkbox__box
@@ -601,9 +602,9 @@ label > input[aria-invalid="true"] + small
   &::after
     width: 10px
     height: 0
+    background-image: none
     border: 0
-    border-bottom: $border-width-regular solid $checkbox-checkmark
-    transform: none
+    border-bottom: $border-width-regular solid $checkbox-indeterminate-dash
     opacity: 1
     margin-bottom: 1px
 
@@ -617,6 +618,9 @@ label > input[aria-invalid="true"] + small
   cursor: not-allowed
   &::after
     border-color: $checkbox-disabled-fg
+
+.checkbox > input[type="checkbox"]:disabled:checked ~ .checkbox__box::after
+  opacity: 0.45
 
 .checkbox > input[type="checkbox"]:disabled ~ .checkbox__label
   color: $checkbox-disabled-fg
@@ -1014,16 +1018,16 @@ $doc-text-meta: $color-text-secondary
         color: $color-brand-100
 
   .checkbox__box
-    background: $dark-surface
-    border-color: $dark-border
+    background: $RED_200
+    border-color: $checkbox-border
 
   .checkbox__label
     color: $dark-text-primary
 
   .checkbox > input[type="checkbox"]:checked ~ .checkbox__box,
   .checkbox > input[type="checkbox"]:indeterminate ~ .checkbox__box
-    background: $color-brand-300
-    border-color: $color-brand-300
+    background: $RED_200
+    border-color: $checkbox-border-checked
 
   .toggle__label
     color: $dark-text-primary

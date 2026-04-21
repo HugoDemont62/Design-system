@@ -15,7 +15,7 @@
   </nav>
 
   <h1>Checkbox</h1>
-  <p>Quatre états : unchecked, checked, indeterminate, disabled. Le composant <strong>Toggle</strong> est un modificateur CSS de la checkbox.</p>
+  <p>Quatre états : unchecked, checked, indeterminate, disabled. État coché : icône croix (<code>cross.svg</code>) centrée sur fond <code>$RED_200</code>. Le composant <strong>Toggle</strong> est un modificateur CSS de la checkbox.</p>
 
   <div class="doc-section">
     <h2>États Checkbox</h2>
@@ -75,9 +75,11 @@
         <tr><td><code>$checkbox-size</code></td><td>Taille de la case</td><td><code>24px</code></td></tr>
         <tr><td><code>$checkbox-border</code></td><td>Bordure unchecked</td><td>→ <code>$color-brand-200</code></td></tr>
         <tr><td><code>$checkbox-border-checked</code></td><td>Bordure checked/indeterminate</td><td>→ <code>$color-brand</code></td></tr>
-        <tr><td><code>$checkbox-bg</code></td><td>Fond unchecked</td><td>→ <code>$color-surface</code></td></tr>
-        <tr><td><code>$checkbox-bg-checked</code></td><td>Fond checked/indeterminate</td><td>→ <code>$color-brand</code></td></tr>
-        <tr><td><code>$checkbox-checkmark</code></td><td>Couleur du crochet</td><td>→ <code>$color-on-brand</code></td></tr>
+        <tr><td><code>$checkbox-bg</code></td><td>Fond unchecked</td><td>→ <code>$RED_200</code></td></tr>
+        <tr><td><code>$checkbox-bg-checked</code></td><td>Fond checked/indeterminate</td><td>→ <code>$RED_200</code></td></tr>
+        <tr><td><code>$checkbox-cross-svg</code></td><td>Icône cochée</td><td>→ <code>url("cross.svg")</code></td></tr>
+        <tr><td><code>$checkbox-cross-size</code></td><td>Taille de la croix</td><td><code>16px</code></td></tr>
+        <tr><td><code>$checkbox-indeterminate-dash</code></td><td>Trait indeterminate</td><td>→ <code>$color-text-primary</code></td></tr>
         <tr><td><code>$checkbox-disabled-border</code></td><td>Bordure disabled</td><td>→ <code>$color-neutral-300</code></td></tr>
         <tr><td><code>$checkbox-disabled-bg</code></td><td>Fond disabled</td><td>→ <code>$color-neutral-100</code></td></tr>
         <tr><td><code>$checkbox-disabled-fg</code></td><td>Crochet + label disabled</td><td>→ <code>$color-text-tertiary</code></td></tr>
