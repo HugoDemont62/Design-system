@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doc — Checkbox (web components)</title>
+  <link rel="stylesheet" href="../main.css">
+  <script src="./ds-checkbox.js" defer></script>
+  <script src="../main.js" defer></script>
+</head>
+<body class="doc-page">
+  <nav class="doc-nav">
+    <a href="../index.html">← Accueil</a>
+    <a href="../doc-button.html">Bouton</a>
+    <a href="doc-button-web-components.html">Bouton (WC)</a>
+    <a href="../doc-link.html">Lien (classes)</a>
+    <a href="doc-link-web-components.html">Lien (WC)</a>
+    <a href="../doc-input.html">Input (classes)</a>
+    <a href="doc-input-web-components.html">Input (WC)</a>
+    <a href="../doc-checkbox.html">Checkbox (classes)</a>
+  </nav>
+
+  <h1>Checkbox (web components)</h1>
+  <p>Case à cocher et <strong>toggle</strong> (<code>variant="toggle"</code>), même rendu que la <a href="../doc-checkbox.html">doc classes</a>. Élément <code>&lt;ds-checkbox&gt;</code>.</p>
+
+  <div class="doc-section">
+    <h2>États Checkbox</h2>
+    <div class="doc-demo-col doc-demo-col--sm">
+      <ds-checkbox label="Unchecked" field-id="wc-cb-1"></ds-checkbox>
+
+      <ds-checkbox label="Checked" checked field-id="wc-cb-2"></ds-checkbox>
+
+      <ds-checkbox label="Indeterminate" indeterminate field-id="wc-cb-3"></ds-checkbox>
+
+      <ds-checkbox label="Disabled unchecked" disabled field-id="wc-cb-4"></ds-checkbox>
+
+      <ds-checkbox label="Disabled checked" checked disabled field-id="wc-cb-5"></ds-checkbox>
+    </div>
+
+    <h2>Toggle (variant)</h2>
+    <div class="doc-demo-col doc-demo-col--sm">
+      <ds-checkbox variant="toggle" label="Off" field-id="wc-tg-1"></ds-checkbox>
+
+      <ds-checkbox variant="toggle" label="On" checked field-id="wc-tg-2"></ds-checkbox>
+    </div>
+
+    <h2>Tokens exposés</h2>
+    <p>Identiques à la version par classes (styles sur le <code>&lt;label&gt;</code> et l’<code>&lt;input type="checkbox"&gt;</code> internes).</p>
+    <table class="doc-table">
+      <thead>
+        <tr><th>Token SASS</th><th>Rôle</th><th>Valeur par défaut</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>$checkbox-size</code></td><td>Taille de la case</td><td><code>24px</code></td></tr>
+        <tr><td><code>$checkbox-border</code></td><td>Bordure unchecked</td><td>→ <code>$color-brand-200</code></td></tr>
+        <tr><td><code>$checkbox-border-checked</code></td><td>Bordure checked/indeterminate</td><td>→ <code>$color-brand</code></td></tr>
+        <tr><td><code>$checkbox-bg</code></td><td>Fond unchecked</td><td>→ <code>$RED_200</code></td></tr>
+        <tr><td><code>$checkbox-bg-checked</code></td><td>Fond checked/indeterminate</td><td>→ <code>$RED_200</code></td></tr>
+        <tr><td><code>$checkbox-cross-svg</code></td><td>Icône cochée</td><td>→ <code>url("cross.svg")</code></td></tr>
+        <tr><td><code>$checkbox-cross-size</code></td><td>Taille de la croix</td><td><code>16px</code></td></tr>
+        <tr><td><code>$checkbox-indeterminate-dash</code></td><td>Trait indeterminate</td><td>→ <code>$color-text-primary</code></td></tr>
+        <tr><td><code>$checkbox-disabled-border</code></td><td>Bordure disabled</td><td>→ <code>$color-neutral-300</code></td></tr>
+        <tr><td><code>$checkbox-disabled-bg</code></td><td>Fond disabled</td><td>→ <code>$color-neutral-100</code></td></tr>
+        <tr><td><code>$checkbox-disabled-fg</code></td><td>Crochet + label disabled</td><td>→ <code>$color-text-tertiary</code></td></tr>
+      </tbody>
+    </table>
+
+    <h2>Utilisation</h2>
+    <p>Inclure <code>web-components/ds-checkbox.js</code> et <code>main.js</code> si vous utilisez <code>indeterminate</code> (<a href="https://developer.mozilla.org/fr/docs/Web/API/Web_components/Using_custom_elements">éléments personnalisés</a>) :</p>
+    <pre class="doc-pre"><code>&lt;script src="web-components/ds-checkbox.js" defer&gt;&lt;/script&gt;
+
+&lt;ds-checkbox label="Accepter" field-id="terms" required&gt;&lt;/ds-checkbox&gt;
+&lt;ds-checkbox label="Coché" checked field-id="a"&gt;&lt;/ds-checkbox&gt;
+&lt;ds-checkbox label="Indéterminé" indeterminate field-id="b"&gt;&lt;/ds-checkbox&gt;
+
+&lt;ds-checkbox variant="toggle" label="Mode sombre" field-id="theme"
+  aria-label="Activer le thème sombre"&gt;&lt;/ds-checkbox&gt;</code></pre>
+  </div>
+</body>
+</html>
