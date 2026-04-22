@@ -3,48 +3,49 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Doc — Bouton</title>
-  <link rel="stylesheet" href="main.css">
+  <title>Doc — Bouton (web components)</title>
+  <link rel="stylesheet" href="../main.css">
+  <script src="./ds-button.js" defer></script>
 </head>
 <body class="doc-page">
   <nav class="doc-nav">
-    <a href="index.html">← Accueil</a>
-    <a href="web-components/doc-button-web-components.html">Bouton (web components)</a>
-    <a href="doc-link.html">Lien</a>
-    <a href="doc-input.html">Input</a>
-    <a href="doc-checkbox.html">Checkbox</a>
+    <a href="../index.html">← Accueil</a>
+    <a href="../doc-button.html">Bouton (classes)</a>
+    <a href="../doc-link.html">Lien</a>
+    <a href="../doc-input.html">Input</a>
+    <a href="../doc-checkbox.html">Checkbox</a>
   </nav>
 
-  <h1>Bouton</h1>
-  <p>Trois variants (Primary, Secondary, Tertiary), deux tailles. Usage sur <code>&lt;button&gt;</code> ou <code>&lt;a&gt;</code>.</p>
+  <h1>Bouton (web components)</h1>
+  <p>Trois variants (Primary, Secondary, Tertiary), deux tailles. Élément personnalisé <code>&lt;ds-button&gt;</code> qui rend un <code>&lt;button&gt;</code> ou un <code>&lt;a&gt;</code> stylés comme la <a href="../doc-button.html">doc classes</a>.</p>
 
   <div class="doc-section">
     <h2>Variants</h2>
     <div class="doc-demo-row">
       <span class="doc-label">Primary</span>
-      <button class="btn-primary">Label</button>
+      <ds-button variant="primary">Label</ds-button>
     </div>
     <div class="doc-demo-row">
       <span class="doc-label">Secondary</span>
-      <button class="btn-secondary">Label</button>
+      <ds-button variant="secondary">Label</ds-button>
     </div>
     <div class="doc-demo-row">
       <span class="doc-label">Tertiary</span>
-      <button class="btn-tertiary">Label</button>
+      <ds-button variant="tertiary">Label</ds-button>
     </div>
 
     <h2>Tailles</h2>
     <div class="doc-demo-row">
       <span class="doc-label">Default</span>
-      <button class="btn-primary">Primary</button>
-      <button class="btn-secondary">Secondary</button>
-      <button class="btn-tertiary">Tertiary</button>
+      <ds-button variant="primary">Primary</ds-button>
+      <ds-button variant="secondary">Secondary</ds-button>
+      <ds-button variant="tertiary">Tertiary</ds-button>
     </div>
     <div class="doc-demo-row">
       <span class="doc-label">Small</span>
-      <button class="btn-primary btn-sm">Primary</button>
-      <button class="btn-secondary btn-sm">Secondary</button>
-      <button class="btn-tertiary btn-sm">Tertiary</button>
+      <ds-button variant="primary" size="sm">Primary</ds-button>
+      <ds-button variant="secondary" size="sm">Secondary</ds-button>
+      <ds-button variant="tertiary" size="sm">Tertiary</ds-button>
     </div>
 
     <h2>États</h2>
@@ -54,12 +55,17 @@
     </div>
     <div class="doc-demo-row">
       <span class="doc-label">Disabled</span>
-      <button class="btn-primary" disabled>Primary</button>
-      <button class="btn-secondary" disabled>Secondary</button>
-      <button class="btn-tertiary" disabled>Tertiary</button>
+      <ds-button variant="primary" disabled>Primary</ds-button>
+      <ds-button variant="secondary" disabled>Secondary</ds-button>
+      <ds-button variant="tertiary" disabled>Tertiary</ds-button>
+    </div>
+    <div class="doc-demo-row">
+      <span class="doc-label">Lien</span>
+      <ds-button variant="tertiary" href="#">Lien bouton</ds-button>
     </div>
 
     <h2>Tokens exposés</h2>
+    <p>Identiques à la version par classes : les mêmes variables CSS du fichier compilé s’appliquent au nœud interne.</p>
     <table class="doc-table">
       <thead>
         <tr><th>Token SASS</th><th>Rôle</th><th>Valeur par défaut</th></tr>
@@ -78,10 +84,13 @@
     </table>
 
     <h2>Utilisation</h2>
-    <pre class="doc-pre"><code>&lt;button class="btn-primary"&gt;Label&lt;/button&gt;
-&lt;button class="btn-primary btn-sm"&gt;Label sm&lt;/button&gt;
-&lt;button class="btn-secondary" disabled&gt;Désactivé&lt;/button&gt;
-&lt;a class="btn-tertiary" href="..."&gt;Lien bouton&lt;/a&gt;</code></pre>
+    <p>Inclure <code>web-components/ds-button.js</code> puis utiliser <code>&lt;ds-button&gt;</code> (<a href="https://developer.mozilla.org/fr/docs/Web/API/Web_components/Using_custom_elements">éléments personnalisés</a>) :</p>
+    <pre class="doc-pre"><code>&lt;script src="web-components/ds-button.js" defer&gt;&lt;/script&gt;
+
+&lt;ds-button variant="primary"&gt;Label&lt;/ds-button&gt;
+&lt;ds-button variant="primary" size="sm"&gt;Label sm&lt;/ds-button&gt;
+&lt;ds-button variant="secondary" disabled&gt;Désactivé&lt;/ds-button&gt;
+&lt;ds-button variant="tertiary" href="..."&gt;Lien bouton&lt;/ds-button&gt;</code></pre>
   </div>
 </body>
 </html>

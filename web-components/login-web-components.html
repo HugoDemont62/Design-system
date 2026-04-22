@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connexion (web components) — Design System</title>
+  <link rel="stylesheet" href="../main.css">
+  <script src="./ds-button.js" defer></script>
+</head>
+<body>
+<div class="login-page">
+
+  <section class="login-form-panel">
+
+    <h1 class="login-title">Connexion</h1>
+
+    <form id="login-form" class="login-fields" novalidate>
+
+      <label data-field="email">
+        <span>Adresse email</span>
+        <input
+          id="login-email-wc"
+          type="text"
+          placeholder="vous@exemple.com"
+          required
+          pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
+          data-error="Veuillez entrer une adresse email valide"
+        >
+        <small data-default-text="Votre adresse email de connexion">Votre adresse email de connexion</small>
+      </label>
+
+      <label data-field="password">
+        <span>Mot de passe</span>
+        <span class="password-field">
+          <input
+            id="login-password-wc"
+            type="password"
+            placeholder="password"
+            required
+            minlength="8"
+            data-error="Le mot de passe doit faire au moins 8 caractères"
+          >
+          <button class="password-toggle" type="button" aria-controls="login-password-wc" aria-label="Afficher le mot de passe" aria-pressed="false">
+            <img src="../oeil_ouvert.svg" alt="">
+          </button>
+        </span>
+        <small data-default-text="8 caractères minimum">8 caractères minimum</small>
+      </label>
+
+      <a href="#" class="link-primary login-forgot">Mot de passe oublié ?</a>
+
+      <label class="checkbox login-terms">
+        <input type="checkbox" id="login-terms-wc" required>
+        <span class="checkbox__box"></span>
+        <span class="checkbox__label">J'accepte les conditions d'utilisation</span>
+      </label>
+
+      <div class="login-actions">
+        <ds-button type="submit" variant="secondary" lang="ja">ログイン</ds-button>
+        <ds-button href="#" variant="primary" lang="ja">アカウントを作成</ds-button>
+      </div>
+
+    </form>
+
+    <div class="login-theme-toggle">
+      <label class="toggle">
+        <input type="checkbox" id="theme-toggle" aria-label="Activer le thème sombre">
+        <span class="toggle__track"></span>
+        <span class="toggle__label">Mode sombre</span>
+      </label>
+    </div>
+
+  </section>
+
+  <aside class="login-visual" aria-hidden="true">
+    <h2 class="login-visual-quote">Design<br>System</h2>
+    <p class="login-visual-sub">Tokens · Composants · UI</p>
+  </aside>
+
+</div>
+<script src="../main.js"></script>
+</body>
+</html>
