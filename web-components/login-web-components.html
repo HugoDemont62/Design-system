@@ -6,6 +6,7 @@
   <title>Connexion (web components) — Design System</title>
   <link rel="stylesheet" href="../main.css">
   <script src="./ds-button.js" defer></script>
+  <script src="./ds-link.js" defer></script>
 </head>
 <body>
 <div class="login-page">
@@ -47,7 +48,7 @@
         <small data-default-text="8 caractères minimum">8 caractères minimum</small>
       </label>
 
-      <a href="#" class="link-primary login-forgot">Mot de passe oublié ?</a>
+      <ds-link href="#" variant="primary" class="login-forgot">Mot de passe oublié ?</ds-link>
 
       <label class="checkbox login-terms">
         <input type="checkbox" id="login-terms-wc" required>

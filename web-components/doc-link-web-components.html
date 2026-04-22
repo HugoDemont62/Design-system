@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doc — Lien (web components)</title>
+  <link rel="stylesheet" href="../main.css">
+  <script src="./ds-link.js" defer></script>
+</head>
+<body class="doc-page">
+  <nav class="doc-nav">
+    <a href="../index.html">← Accueil</a>
+    <a href="../doc-button.html">Bouton</a>
+    <a href="doc-button-web-components.html">Bouton (WC)</a>
+    <a href="../doc-link.html">Lien (classes)</a>
+    <a href="../doc-input.html">Input</a>
+    <a href="../doc-checkbox.html">Checkbox</a>
+  </nav>
+
+  <h1>Lien (web components)</h1>
+  <p>Deux variants. Le secondary est prévu pour les fonds sombres. Élément <code>&lt;ds-link&gt;</code> : même rendu que la <a href="../doc-link.html">doc classes</a>.</p>
+
+  <div class="doc-section">
+    <h2>Variants</h2>
+    <div class="doc-demo-row">
+      <span class="doc-label">Primary</span>
+      <ds-link href="#" variant="primary">Lien principal</ds-link>
+    </div>
+    <div class="doc-demo-row doc-demo-dark">
+      <span class="doc-label">Secondary</span>
+      <ds-link href="#" variant="secondary">Lien secondaire</ds-link>
+    </div>
+
+    <h2>États</h2>
+    <div class="doc-demo-row">
+      <span class="doc-label">Hover/Focus</span>
+      <ds-link href="#" variant="primary">Survolez-moi</ds-link>
+    </div>
+    <div class="doc-demo-row doc-demo-dark">
+      <span class="doc-label">Visited</span>
+      <ds-link href="../doc-link.html" variant="secondary">Lien visité</ds-link>
+    </div>
+    <div class="doc-demo-row">
+      <span class="doc-label">Désactivé (optionnel)</span>
+      <ds-link href="#" variant="primary" disabled>Lien inactif</ds-link>
+    </div>
+
+    <h2>Tokens exposés</h2>
+    <p>Identiques à la version par classes : styles appliqués sur le <code>&lt;a&gt;</code> interne.</p>
+    <table class="doc-table">
+      <thead>
+        <tr><th>Token SASS</th><th>Rôle</th><th>Valeur par défaut</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>$link-primary-color</code></td><td>Couleur texte Primary</td><td>→ <code>$color-brand</code></td></tr>
+        <tr><td><code>$link-primary-color-active</code></td><td>Couleur active Primary</td><td>→ <code>$color-brand-100</code></td></tr>
+        <tr><td><code>$link-secondary-color</code></td><td>Couleur texte Secondary</td><td>→ <code>$color-neutral-100</code></td></tr>
+        <tr><td><code>$link-secondary-color-visited</code></td><td>Couleur visited Secondary</td><td><code>#FD81F0</code></td></tr>
+        <tr><td><code>$link-secondary-color-active</code></td><td>Couleur active Secondary</td><td>→ <code>$color-neutral-0</code></td></tr>
+      </tbody>
+    </table>
+
+    <h2>Utilisation</h2>
+    <p>Inclure <code>web-components/ds-link.js</code> puis utiliser <code>&lt;ds-link&gt;</code> (<a href="https://developer.mozilla.org/fr/docs/Web/API/Web_components/Using_custom_elements">éléments personnalisés</a>) :</p>
+    <pre class="doc-pre"><code>&lt;script src="web-components/ds-link.js" defer&gt;&lt;/script&gt;
+
+&lt;ds-link href="..." variant="primary"&gt;Lien principal&lt;/ds-link&gt;
+&lt;ds-link href="..." variant="secondary"&gt;Lien secondaire&lt;/ds-link&gt;
+&lt;ds-link href="..." target="_blank" rel="noopener noreferrer"&gt;Externe&lt;/ds-link&gt;</code></pre>
+  </div>
+</body>
+</html>

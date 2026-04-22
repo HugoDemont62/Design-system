@@ -13,6 +13,10 @@ ds-button {
   display: contents;
 }
 
+ds-link {
+  display: contents;
+}
+
 html {
   font-size: 15px;
 }
