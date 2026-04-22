@@ -36,6 +36,24 @@ export default function LoginPage() {
     if (label) label.classList.toggle('is-error', !!errors.password)
   }, [errors.password])
 
+  // Toggle password visibility — main.js n'est pas chargé dans la version React
+  useEffect(() => {
+    const handleToggle = e => {
+      const btn = e.target.closest('.password-toggle')
+      if (!btn) return
+      const input = btn.closest('.password-field')?.querySelector('input')
+      if (!input) return
+      const show = input.type === 'password'
+      input.type = show ? 'text' : 'password'
+      btn.setAttribute('aria-pressed', show ? 'true' : 'false')
+      btn.setAttribute('aria-label', show ? 'Masquer le mot de passe' : 'Afficher le mot de passe')
+      const img = btn.querySelector('img')
+      if (img) img.src = show ? '/oeil_ferme.svg' : '/oeil_ouvert.svg'
+    }
+    document.addEventListener('click', handleToggle)
+    return () => document.removeEventListener('click', handleToggle)
+  }, [])
+
   // Branche tous les événements DOM une seule fois après le premier mount
   useEffect(() => {
     const emailEl = emailRef.current
