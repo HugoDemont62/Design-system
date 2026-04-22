@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connexion (web components) — Design System</title>
+  <link rel="stylesheet" href="../main.css">
+  <script src="./ds-button.js" defer></script>
+  <script src="./ds-link.js" defer></script>
+  <script src="./ds-input.js" defer></script>
+  <script src="./ds-checkbox.js" defer></script>
+  <!-- Après les définitions des custom elements (scripts defer), sinon #theme-toggle et les inputs n'existent pas encore -->
+  <script src="../main.js" defer></script>
+</head>
+<body>
+<div class="login-page">
+
+  <section class="login-form-panel">
+
+    <h1 class="login-title">Connexion</h1>
+
+    <form id="login-form" class="login-fields" novalidate>
+
+      <ds-input
+        data-field="email"
+        label="Adresse email"
+        helper="Votre adresse email de connexion"
+        placeholder="vous@exemple.com"
+        field-id="login-email-wc"
+        type="text"
+        required
+        pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
+        data-error="Veuillez entrer une adresse email valide"
+      ></ds-input>
+
+      <ds-input
+        data-field="password"
+        label="Mot de passe"
+        helper="8 caractères minimum"
+        placeholder="password"
+        field-id="login-password-wc"
+        type="password"
+        required
+        minlength="8"
+        data-error="Le mot de passe doit faire au moins 8 caractères"
+      ></ds-input>
+
+      <ds-link href="#" variant="primary" class="login-forgot">Mot de passe oublié ?</ds-link>
+
+      <ds-checkbox
+        class="login-terms"
+        label="J'accepte les conditions d'utilisation"
+        field-id="login-terms-wc"
+        required
+      ></ds-checkbox>
+
+      <div class="login-actions">
+        <ds-button type="submit" variant="secondary" lang="ja">ログイン</ds-button>
+        <ds-button href="#" variant="primary" lang="ja">アカウントを作成</ds-button>
+      </div>
+
+    </form>
+
+    <div class="login-theme-toggle">
+      <ds-checkbox
+        variant="toggle"
+        field-id="theme-toggle"
+        aria-label="Activer le thème sombre"
+        label="Mode sombre"
+      ></ds-checkbox>
+    </div>
+
+  </section>
+
+  <aside class="login-visual" aria-hidden="true">
+    <h2 class="login-visual-quote">Design<br>System</h2>
+    <p class="login-visual-sub">Tokens · Composants · UI</p>
+  </aside>
+
+</div>
+</body>
+</html>

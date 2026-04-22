@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doc — Input (web components)</title>
+  <link rel="stylesheet" href="../main.css">
+  <script src="./ds-input.js" defer></script>
+  <script src="../main.js" defer></script>
+</head>
+<body class="doc-page">
+  <nav class="doc-nav">
+    <a href="../index.html">← Accueil</a>
+    <a href="../doc-button.html">Bouton</a>
+    <a href="doc-button-web-components.html">Bouton (WC)</a>
+    <a href="../doc-link.html">Lien (classes)</a>
+    <a href="doc-link-web-components.html">Lien (WC)</a>
+    <a href="../doc-input.html">Input (classes)</a>
+    <a href="../doc-checkbox.html">Checkbox (classes)</a>
+    <a href="doc-checkbox-web-components.html">Checkbox (WC)</a>
+  </nav>
+
+  <h1>Text &amp; Password Input (web components)</h1>
+  <p>Champ avec label et aide, même rendu que la <a href="../doc-input.html">doc classes</a>. Élément <code>&lt;ds-input&gt;</code>.</p>
+
+  <div class="doc-section">
+    <h2>Text Input — États</h2>
+    <div class="doc-demo-col">
+      <ds-input label="Label" helper="Texte d'aide" placeholder="Placeholder"></ds-input>
+
+      <ds-input label="Focus (cliquez dans le champ)" helper="Ce champ obtient le focus" placeholder="Cliquez ici" field-id="doc-wc-focus"></ds-input>
+
+      <ds-input label="Erreur" helper="Message d'erreur" class="is-error" aria-invalid="true" field-id="doc-wc-err" value="Valeur invalide"></ds-input>
+
+      <ds-input label="Disabled" helper="Ce champ est désactivé" placeholder="Non éditable" disabled field-id="doc-wc-dis"></ds-input>
+    </div>
+
+    <h2>Password Input</h2>
+    <div class="doc-demo-col">
+      <ds-input
+        type="password"
+        label="Mot de passe"
+        helper="8 caractères minimum"
+        placeholder="••••••••"
+        field-id="doc-pwd-wc"
+      ></ds-input>
+    </div>
+
+    <h2>Tokens exposés</h2>
+    <p>Identiques à la version par classes (styles sur le <code>&lt;label&gt;</code> et l’<code>&lt;input&gt;</code> internes).</p>
+    <table class="doc-table">
+      <thead>
+        <tr><th>Token SASS</th><th>Rôle</th><th>Valeur par défaut</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>$input-background</code></td><td>Fond du champ</td><td>→ <code>$color-surface</code></td></tr>
+        <tr><td><code>$input-border-color</code></td><td>Bordure par défaut</td><td>→ <code>$color-brand-200</code></td></tr>
+        <tr><td><code>$input-border-color-focus</code></td><td>Bordure focus</td><td>→ <code>$color-brand-400</code></td></tr>
+        <tr><td><code>$input-border-color-error</code></td><td>Bordure erreur</td><td>→ <code>$color-danger</code></td></tr>
+        <tr><td><code>$input-text-color</code></td><td>Couleur texte saisi</td><td>→ <code>$color-text-primary</code></td></tr>
+        <tr><td><code>$input-placeholder-color</code></td><td>Couleur placeholder</td><td>→ <code>$color-neutral-500</code></td></tr>
+        <tr><td><code>$input-helper-color</code></td><td>Couleur texte d'aide</td><td>→ <code>$color-text-secondary</code></td></tr>
+        <tr><td><code>$input-helper-color-error</code></td><td>Couleur texte d'aide erreur</td><td>→ <code>$color-danger</code></td></tr>
+      </tbody>
+    </table>
+
+    <h2>Utilisation</h2>
+    <p>Inclure <code>web-components/ds-input.js</code> puis déclarer les attributs (voir <a href="https://developer.mozilla.org/fr/docs/Web/API/Web_components/Using_custom_elements">éléments personnalisés</a>) :</p>
+    <pre class="doc-pre"><code>&lt;script src="web-components/ds-input.js" defer&gt;&lt;/script&gt;
+
+&lt;ds-input
+  label="Email"
+  helper="Texte d'aide"
+  placeholder="vous@exemple.com"
+  field-id="email"
+  type="text"
+  required
+&gt;&lt;/ds-input&gt;
+
+&lt;ds-input
+  type="password"
+  label="Mot de passe"
+  helper="8 caractères minimum"
+  field-id="pwd"
+  required
+  minlength="8"
+&gt;&lt;/ds-input&gt;</code></pre>
+  </div>
+</body>
+</html>

@@ -237,6 +237,22 @@ $btn-sm-padding-h: $space-6
 *
   box-sizing: border-box
 
+// Hôte du web component <ds-button> : pas de boîte intermédiaire (flex, etc.)
+ds-button
+  display: contents
+
+// Hôte du web component <ds-link>
+ds-link
+  display: contents
+
+// Hôte du web component <ds-input> (le <label> est à l'intérieur)
+ds-input
+  display: contents
+
+// Hôte du web component <ds-checkbox> (checkbox ou toggle)
+ds-checkbox
+  display: contents
+
 html
   font-size: $font-size-md
 
@@ -663,6 +679,11 @@ label > input[aria-invalid="true"] + small
       transition: transform $motion-duration-fast $motion-easing-standard, background-color $motion-duration-fast $motion-easing-standard
       box-shadow: $shadow-xs
 
+  &__label
+    font-family: $font-family-base
+    font-size: $font-size-xl
+    color: $color-text-primary
+
 .toggle > input[type="checkbox"]:checked ~ .toggle__track
   background: $color-brand
   border-color: $color-brand
@@ -672,11 +693,6 @@ label > input[aria-invalid="true"] + small
 .toggle > input[type="checkbox"]:focus-visible ~ .toggle__track
   outline: $border-width-regular solid $input-border-color-focus
   outline-offset: $space-1
-
-  &__label
-    font-family: $font-family-base
-    font-size: $font-size-xl
-    color: $color-text-primary
 
 // -------------------------------------
 

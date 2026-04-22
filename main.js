@@ -1,15 +1,29 @@
 (function () {
   // ── Password toggle ──────────────────────────────────────
+  /** Répertoire de main.js (SVG à côté), pour que les pages dans un sous-dossier (ex. web-components/) chargent les bons fichiers. */
+  function mainScriptBase() {
+    var el = document.currentScript;
+    if (el && el.src) return el.src.replace(/[^/]+$/, "");
+    var scripts = document.getElementsByTagName("script");
+    for (var i = scripts.length - 1; i >= 0; i--) {
+      var src = scripts[i].src;
+      if (src && /\/main\.js(\?|$)/.test(src)) return src.replace(/[^/]+$/, "");
+    }
+    return "";
+  }
+
+  var _iconBase = mainScriptBase();
+
   function isDarkTheme() {
     return document.body.classList.contains("theme-dark");
   }
 
   function openIconPath() {
-    return isDarkTheme() ? "./oeil_ouvert_blanc.svg" : "./oeil_ouvert.svg";
+    return _iconBase + (isDarkTheme() ? "oeil_ouvert_blanc.svg" : "oeil_ouvert.svg");
   }
 
   function closedIconPath() {
-    return isDarkTheme() ? "./oeil_ferme_blanc.svg" : "./oeil_ferme.svg";
+    return _iconBase + (isDarkTheme() ? "oeil_ferme_blanc.svg" : "oeil_ferme.svg");
   }
 
   function refreshPasswordToggleIcons() {

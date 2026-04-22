@@ -9,6 +9,22 @@
   box-sizing: border-box;
 }
 
+ds-button {
+  display: contents;
+}
+
+ds-link {
+  display: contents;
+}
+
+ds-input {
+  display: contents;
+}
+
+ds-checkbox {
+  display: contents;
+}
+
 html {
   font-size: 15px;
 }
@@ -177,6 +193,7 @@ a.link-primary {
   text-underline-offset: 4px;
   padding-top: 8px;
   transition: color 120ms cubic-bezier(0.2, 0, 0, 1);
+  color: #D10D1D;
 }
 a.link::before,
 a.link-primary::before {
@@ -196,10 +213,6 @@ a.link-primary:hover::before,
 a.link-primary:focus-visible::before {
   transform: scaleX(1);
 }
-a.link,
-a.link-primary {
-  color: #D10D1D;
-}
 a.link:active,
 a.link-primary:active {
   color: #F88790;
@@ -217,6 +230,7 @@ button.link-secondary {
   text-underline-offset: 4px;
   padding-top: 8px;
   transition: color 120ms cubic-bezier(0.2, 0, 0, 1);
+  color: #F9F5F5;
 }
 a.link-secondary::before,
 button.link-secondary::before {
@@ -235,10 +249,6 @@ a.link-secondary:hover::before, a.link-secondary:focus-visible::before,
 button.link-secondary:hover::before,
 button.link-secondary:focus-visible::before {
   transform: scaleX(1);
-}
-a.link-secondary,
-button.link-secondary {
-  color: #F9F5F5;
 }
 a.link-secondary:visited,
 button.link-secondary:visited {
@@ -474,6 +484,11 @@ label > input[aria-invalid=true] + small {
   transition: transform 120ms cubic-bezier(0.2, 0, 0, 1), background-color 120ms cubic-bezier(0.2, 0, 0, 1);
   box-shadow: 0 1px 2px rgba(17, 13, 14, 0.08);
 }
+.toggle__label {
+  font-family: "Raleway", "Segoe UI", Arial, sans-serif;
+  font-size: 17px;
+  color: #110D0E;
+}
 
 .toggle > input[type=checkbox]:checked ~ .toggle__track {
   background: #D10D1D;
@@ -486,11 +501,6 @@ label > input[aria-invalid=true] + small {
 .toggle > input[type=checkbox]:focus-visible ~ .toggle__track {
   outline: 2px solid #D10D1D;
   outline-offset: 4px;
-}
-.toggle > input[type=checkbox]:focus-visible ~ .toggle__track__label {
-  font-family: "Raleway", "Segoe UI", Arial, sans-serif;
-  font-size: 17px;
-  color: #110D0E;
 }
 
 .login-page {
@@ -679,6 +689,9 @@ label > input[aria-invalid=true] + small {
   text-underline-offset: 4px;
   padding-top: 8px;
   transition: color 120ms cubic-bezier(0.2, 0, 0, 1);
+  font-size: 15px;
+  color: #D10D1D;
+  margin-right: 16px;
 }
 .doc-nav a::before {
   content: "";
@@ -694,11 +707,6 @@ label > input[aria-invalid=true] + small {
 }
 .doc-nav a:hover::before, .doc-nav a:focus-visible::before {
   transform: scaleX(1);
-}
-.doc-nav a {
-  font-size: 15px;
-  color: #D10D1D;
-  margin-right: 16px;
 }
 .doc-nav a:active {
   color: #F88790;

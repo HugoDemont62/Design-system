@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doc — Bouton (web components)</title>
+  <link rel="stylesheet" href="../main.css">
+  <script src="./ds-button.js" defer></script>
+</head>
+<body class="doc-page">
+  <nav class="doc-nav">
+    <a href="../index.html">← Accueil</a>
+    <a href="../doc-button.html">Bouton (classes)</a>
+    <a href="../doc-link.html">Lien (classes)</a>
+    <a href="doc-link-web-components.html">Lien (WC)</a>
+    <a href="../doc-input.html">Input (classes)</a>
+    <a href="doc-input-web-components.html">Input (WC)</a>
+    <a href="../doc-checkbox.html">Checkbox (classes)</a>
+    <a href="doc-checkbox-web-components.html">Checkbox (WC)</a>
+  </nav>
+
+  <h1>Bouton (web components)</h1>
+  <p>Trois variants (Primary, Secondary, Tertiary), deux tailles. Élément personnalisé <code>&lt;ds-button&gt;</code> qui rend un <code>&lt;button&gt;</code> ou un <code>&lt;a&gt;</code> stylés comme la <a href="../doc-button.html">doc classes</a>.</p>
+
+  <div class="doc-section">
+    <h2>Variants</h2>
+    <div class="doc-demo-row">
+      <span class="doc-label">Primary</span>
+      <ds-button variant="primary">Label</ds-button>
+    </div>
+    <div class="doc-demo-row">
+      <span class="doc-label">Secondary</span>
+      <ds-button variant="secondary">Label</ds-button>
+    </div>
+    <div class="doc-demo-row">
+      <span class="doc-label">Tertiary</span>
+      <ds-button variant="tertiary">Label</ds-button>
+    </div>
+
+    <h2>Tailles</h2>
+    <div class="doc-demo-row">
+      <span class="doc-label">Default</span>
+      <ds-button variant="primary">Primary</ds-button>
+      <ds-button variant="secondary">Secondary</ds-button>
+      <ds-button variant="tertiary">Tertiary</ds-button>
+    </div>
+    <div class="doc-demo-row">
+      <span class="doc-label">Small</span>
+      <ds-button variant="primary" size="sm">Primary</ds-button>
+      <ds-button variant="secondary" size="sm">Secondary</ds-button>
+      <ds-button variant="tertiary" size="sm">Tertiary</ds-button>
+    </div>
+
+    <h2>États</h2>
+    <div class="doc-demo-row">
+      <span class="doc-label">Hover/Focus</span>
+      <p class="doc-label">Survolez les boutons ci-dessus pour voir l'état hover.</p>
+    </div>
+    <div class="doc-demo-row">
+      <span class="doc-label">Disabled</span>
+      <ds-button variant="primary" disabled>Primary</ds-button>
+      <ds-button variant="secondary" disabled>Secondary</ds-button>
+      <ds-button variant="tertiary" disabled>Tertiary</ds-button>
+    </div>
+    <div class="doc-demo-row">
+      <span class="doc-label">Lien</span>
+      <ds-button variant="tertiary" href="#">Lien bouton</ds-button>
+    </div>
+
+    <h2>Tokens exposés</h2>
+    <p>Identiques à la version par classes : les mêmes variables CSS du fichier compilé s’appliquent au nœud interne.</p>
+    <table class="doc-table">
+      <thead>
+        <tr><th>Token SASS</th><th>Rôle</th><th>Valeur par défaut</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>$btn-primary-color</code></td><td>Couleur texte/bordure Primary</td><td>→ <code>$color-brand</code></td></tr>
+        <tr><td><code>$btn-primary-background-hover</code></td><td>Fond hover Primary</td><td>→ <code>$color-brand-100</code></td></tr>
+        <tr><td><code>$btn-primary-background-active</code></td><td>Fond active Primary</td><td>→ <code>$color-brand-200</code></td></tr>
+        <tr><td><code>$btn-secondary-background</code></td><td>Fond Secondary</td><td>→ <code>$color-brand</code></td></tr>
+        <tr><td><code>$btn-secondary-color</code></td><td>Texte Secondary</td><td>→ <code>$color-on-brand</code></td></tr>
+        <tr><td><code>$btn-tertiary-bg</code></td><td>Fond Tertiary</td><td>→ <code>$color-neutral-800</code></td></tr>
+        <tr><td><code>$btn-sm-font-size</code></td><td>Taille texte sm</td><td>→ <code>$font-size-md</code></td></tr>
+        <tr><td><code>$btn-sm-padding-v</code></td><td>Padding vertical sm</td><td>→ <code>$space-2</code></td></tr>
+        <tr><td><code>$btn-sm-padding-h</code></td><td>Padding horizontal sm</td><td>→ <code>$space-6</code></td></tr>
+      </tbody>
+    </table>
+
+    <h2>Utilisation</h2>
+    <p>Inclure <code>web-components/ds-button.js</code> puis utiliser <code>&lt;ds-button&gt;</code> (<a href="https://developer.mozilla.org/fr/docs/Web/API/Web_components/Using_custom_elements">éléments personnalisés</a>) :</p>
+    <pre class="doc-pre"><code>&lt;script src="web-components/ds-button.js" defer&gt;&lt;/script&gt;
+
+&lt;ds-button variant="primary"&gt;Label&lt;/ds-button&gt;
+&lt;ds-button variant="primary" size="sm"&gt;Label sm&lt;/ds-button&gt;
+&lt;ds-button variant="secondary" disabled&gt;Désactivé&lt;/ds-button&gt;
+&lt;ds-button variant="tertiary" href="..."&gt;Lien bouton&lt;/ds-button&gt;</code></pre>
+  </div>
+</body>
+</html>
