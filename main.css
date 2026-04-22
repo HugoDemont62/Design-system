@@ -17,6 +17,10 @@ ds-link {
   display: contents;
 }
 
+ds-input {
+  display: contents;
+}
+
 html {
   font-size: 15px;
 }

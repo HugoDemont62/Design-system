@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="../main.css">
   <script src="./ds-button.js" defer></script>
   <script src="./ds-link.js" defer></script>
+  <script src="./ds-input.js" defer></script>
 </head>
 <body>
 <div class="login-page">
@@ -17,36 +18,29 @@
 
     <form id="login-form" class="login-fields" novalidate>
 
-      <label data-field="email">
-        <span>Adresse email</span>
-        <input
-          id="login-email-wc"
-          type="text"
-          placeholder="vous@exemple.com"
-          required
-          pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
-          data-error="Veuillez entrer une adresse email valide"
-        >
-        <small data-default-text="Votre adresse email de connexion">Votre adresse email de connexion</small>
-      </label>
+      <ds-input
+        data-field="email"
+        label="Adresse email"
+        helper="Votre adresse email de connexion"
+        placeholder="vous@exemple.com"
+        field-id="login-email-wc"
+        type="text"
+        required
+        pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
+        data-error="Veuillez entrer une adresse email valide"
+      ></ds-input>
 
-      <label data-field="password">
-        <span>Mot de passe</span>
-        <span class="password-field">
-          <input
-            id="login-password-wc"
-            type="password"
-            placeholder="password"
-            required
-            minlength="8"
-            data-error="Le mot de passe doit faire au moins 8 caractères"
-          >
-          <button class="password-toggle" type="button" aria-controls="login-password-wc" aria-label="Afficher le mot de passe" aria-pressed="false">
-            <img src="../oeil_ouvert.svg" alt="">
-          </button>
-        </span>
-        <small data-default-text="8 caractères minimum">8 caractères minimum</small>
-      </label>
+      <ds-input
+        data-field="password"
+        label="Mot de passe"
+        helper="8 caractères minimum"
+        placeholder="password"
+        field-id="login-password-wc"
+        type="password"
+        required
+        minlength="8"
+        data-error="Le mot de passe doit faire au moins 8 caractères"
+      ></ds-input>
 
       <ds-link href="#" variant="primary" class="login-forgot">Mot de passe oublié ?</ds-link>
 
