@@ -13,7 +13,7 @@ function validatePassword(v) {
 }
 
 export default function LoginPage() {
-  const [errors, setErrors] = useState({ email: '', password: '' })
+  const [errors, setErrors] = useState({ email: '', password: '', terms: '' })
 
   const emailRef = useRef(null)
   const passwordRef = useRef(null)
@@ -47,7 +47,10 @@ export default function LoginPage() {
     const onPasswordInput = e => { passwordVal.current = e.target.value }
     const onEmailBlur     = () => setErrors(prev => ({ ...prev, email: validateEmail(emailVal.current) }))
     const onPasswordBlur  = () => setErrors(prev => ({ ...prev, password: validatePassword(passwordVal.current) }))
-    const onTermsChange   = e => { termsChecked.current = e.target.checked }
+    const onTermsChange   = e => {
+      termsChecked.current = e.target.checked
+      if (e.target.checked) setErrors(prev => ({ ...prev, terms: '' }))
+    }
     const onThemeChange   = e => document.body.classList.toggle('theme-dark', e.target.checked)
 
     emailEl?.addEventListener('input', onEmailInput)
@@ -71,8 +74,9 @@ export default function LoginPage() {
     e.preventDefault()
     const emailErr    = validateEmail(emailVal.current)
     const passwordErr = validatePassword(passwordVal.current)
-    setErrors({ email: emailErr, password: passwordErr })
-    if (emailErr || passwordErr || !termsChecked.current) return
+    const termsErr    = termsChecked.current ? '' : 'Vous devez accepter les conditions d\'utilisation'
+    setErrors({ email: emailErr, password: passwordErr, terms: termsErr })
+    if (emailErr || passwordErr || termsErr) return
     console.log('Login :', emailVal.current)
   }
 
@@ -122,6 +126,9 @@ export default function LoginPage() {
             field-id="login-terms-react"
             required=""
           />
+          {errors.terms && (
+            <small className="terms-error" role="alert">{errors.terms}</small>
+          )}
 
           <div className="login-actions">
             <ds-button type="submit" variant="secondary" lang="ja">ログイン</ds-button>
